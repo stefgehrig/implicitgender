@@ -224,6 +224,52 @@ df %>%
     z           = sqrt(compute_stat_indep(mean(p_complex), n[1], n[2])) * sign(lower_bound),
     p           = pnorm(z, lower.tail = FALSE))
 
+# figure with complex initial and ultimate choices by discrimination type
+png("figures/complex_choice_types.png", width = 2200, height = 1400, res = 290)
+df %>%
+  mutate(
+    "italic('Gen'[K]*',')~italic('Gen'[W])" := case_when(
+      type == "non" ~ "Explicit:\nnon",
+      type == "mixed" ~ "Explicit:\nmixed",
+      type == "against_men" ~ "Female",
+      TRUE ~ "Male"),
+    "italic('Com'[fW]*',')~italic('Com'[fK])~(initial)"  := ifelse(dec1 == 1, "Male", "Female"),
+    "italic('Com'[fW]*',')~italic('Com'[fK])~(ultimate)" = ifelse(
+      indif1 == 0 & dec1 == 1,
+      "Male",
+      ifelse(indif1 == 0 & dec1 == 0, "Female", "Sell"))) %>%
+  make_long(`italic('Gen'[K]*',')~italic('Gen'[W])`, 
+            `italic('Com'[fW]*',')~italic('Com'[fK])~(initial)`, 
+            `italic('Com'[fW]*',')~italic('Com'[fK])~(ultimate)`) %>%
+  mutate(label = ifelse(
+    node == "Male" & x == "italic('Gen'[K]*',')~italic('Gen'[W])", "Explicit:\nagainst women",
+    ifelse(node == "Female" &x == "italic('Gen'[K]*',')~italic('Gen'[W])", "Explicit:\nagainst men", node))) %>% 
+  mutate(node = factor(node, 
+                       ordered = TRUE, 
+                       levels = rev(c("Sell", "Male", "Female", "Explicit:\nmixed", "Explicit:\nnon")))) %>% 
+  ggplot(aes(x = x, 
+             next_x = next_x, 
+             node = node, 
+             next_node = next_node,
+             fill = factor(node),
+             label = label)) +
+  geom_alluvial(flow.alpha = 0.6) + 
+  theme_alluvial(base_size = 14) + 
+  geom_alluvial_label(size = 4, color = "black", fill = "white",
+                      family = "Segoe UI Semilight") +
+  theme(legend.position = "none",
+        text = element_text(family = "Segoe UI Semilight")) +
+  labs(x = "", y= "N") +
+  scale_fill_manual(values = c("grey", "grey", "#fff2ae", "#cbd5e8", "grey" )) +
+  annotate("text", x = 1, y = 280, label = "Gender decisions", family = "Segoe UI Semilight", size = 5) +
+  annotate("text", x = 2, y = 280, label = "Complex decision", family = "Segoe UI Semilight", size = 5) + 
+  geom_segment(aes(x = 1, xend = 1, y = 240, yend = 270), col = "grey20") +
+  geom_segment(aes(x = 2, xend = 2, y = 240, yend = 270), col = "grey20") +
+  geom_segment(aes(x = 3, xend = 2, y = 240, yend = 270), col = "grey20") +
+  scale_x_discrete(labels = function(x) parse(text=x))
+dev.off()
+
+
 ##########################
 #### simple decisions ####
 ##########################
