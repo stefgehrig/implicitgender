@@ -335,6 +335,7 @@ dev.off()
 
 # plotting association of elicitation methods
 png("figures/association_wtp_rating.png", width = 1600, height = 1400, res = 375)
+set.seed(12345)
 df_wtp %>% 
   drop_na(price) %>% 
   mutate(likert = ifelse(cert == "word", scaleword, scaleknow)) %>% 
