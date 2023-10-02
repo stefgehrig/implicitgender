@@ -1,0 +1,28 @@
+\begin{table}
+\centering
+\begin{tabular}[t]{lcccccc}
+\toprule
+\multicolumn{1}{c}{ } & \multicolumn{2}{c}{Full sample} & \multicolumn{4}{c}{By discrimination types (Multiple switchers excluded)} \\
+\cmidrule(l{3pt}r{3pt}){2-3} \cmidrule(l{3pt}r{3pt}){4-7}
+  & Multiple switchers excluded & Multiple switchers imputed & Explicit: against men & Explicit: against women & Explicit: mixed & Explicit: none\\
+\midrule
+(Intercept) & \num{45.8}*** & \num{47.0}*** & \num{55.0}*** & \num{45.0}*** & \num{51.0}*** & \num{38.1}***\\
+ & (\num{3.0}) & (\num{3.0}) & (\num{7.4}) & (\num{6.7}) & (\num{5.4}) & (\num{5.1})\\
+T2 & \num{-3.2} & \num{-4.1} & \num{-22.9}** & \num{-4.0} & \num{-1.8} & \num{2.6}\\
+ & (\num{3.8}) & (\num{3.8}) & (\num{10.2}) & (\num{8.0}) & (\num{6.9}) & (\num{6.7})\\
+Word & \num{0.8} & \num{0.1} & \num{0.0} & \num{-6.2} & \num{-6.2} & \num{11.7}*\\
+ & (\num{3.8}) & (\num{3.8}) & (\num{12.5}) & (\num{8.7}) & (\num{5.7}) & (\num{6.0})\\
+T2:Word & \num{9.0}* & \num{9.3}* & \num{11.7} & \num{23.1}** & \num{4.7} & \num{4.5}\\
+ & (\num{4.9}) & (\num{4.9}) & (\num{14.1}) & (\num{10.3}) & (\num{8.3}) & (\num{8.1})\\
+\midrule
+Num.Obs. & \num{438} & \num{480} & \num{59} & \num{109} & \num{135} & \num{135}\\
+Num.Imp. &  & \num{100} &  &  &  & \\
+R2 & \num{0.017} & \num{0.016} & \num{0.109} & \num{0.071} & \num{0.006} & \num{0.077}\\
+AIC & \num{4140.3} &  & \num{566.3} & \num{1040.3} & \num{1277.0} & \num{1266.2}\\
+BIC & \num{4160.7} &  & \num{576.6} & \num{1053.7} & \num{1291.6} & \num{1280.8}\\
+RMSE & \num{27.00} &  & \num{26.98} & \num{27.30} & \num{26.41} & \num{25.38}\\
+Std.Errors & by: participant &  & by: participant & by: participant & by: participant & by: participant\\
+\bottomrule
+\multicolumn{7}{l}{\rule{0pt}{1em}* p $<$ 0.1, ** p $<$ 0.05, *** p $<$ 0.01}\\
+\end{tabular}
+\end{table}
