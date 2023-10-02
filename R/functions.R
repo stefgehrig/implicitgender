@@ -138,66 +138,6 @@ bargraph_choices <- function(data,
   return(p)
 }
 
-bargraph_sell <- function(data, choicevar, sellvar, ylab){
-  
-  # define informative decision labels in plotmath language
-  labels <- tribble(
-    ~decision_nr, ~treatment, ~label,
-    1, "1", "italic('Com'[fW])",
-    1, "2", "italic('Com'[fK])",
-    2, "1", "italic('Gen'[K])", 
-    2, "2", "italic('Gen'[K])", 
-    3, "1", "italic('Gen'[W])", 
-    3, "2", "italic('Gen'[W])", 
-    4, "1", "italic('Cer'[f])", 
-    4, "2", "italic('Cer'[f])", 
-    5, "1", "italic('Cer'[m])", 
-    5, "2", "italic('Cer'[m])", 
-    6, "1", "italic('Sim'[fK])",
-    6, "2", "italic('Sim'[fK])",
-    7, "1", "italic('Sim'[fW])", 
-    7, "2", "italic('Sim'[fW])", 
-    8, "1", "italic('Sim'[mK])", 
-    8, "2", "italic('Sim'[mK])", 
-    9, "1", "italic('Sim'[mW])", 
-    9, "2", "italic('Sim'[mW])"
-  )
-  
-  data <- data %>% 
-    left_join(labels, by = c("decision_nr", "treatment")) %>% 
-    mutate(order = as.numeric(paste0(decision_nr, treatment)),
-           label = fct_reorder(factor(label), order, mean)) %>%
-    group_by(label, !!as.symbol(choicevar)) %>% 
-    summarise(count_sell = sum(!!as.symbol(sellvar)),
-              n = n(),
-              mean_sell  = mean(!!as.symbol(sellvar)),
-              .groups = "drop_last") %>%
-    summarise(sell_female_delta = diff(mean_sell),
-              sell_female_delta_label = paste0(format(round_half_up(sell_female_delta,2),nsmall=2)),
-              ci_lower   = diffscoreci(count_sell[2], n[2], count_sell[1], n[1], 0.95)$conf.int[1],
-              ci_upper   = diffscoreci(count_sell[2], n[2], count_sell[1], n[1], 0.95)$conf.int[2]
-    ) %>% ungroup 
-  
-  p <- ggplot(data) + 
-    geom_bar(aes(x = label, y = sell_female_delta),
-             stat = "identity", col = "black", fill = "grey85") +
-    geom_errorbar(aes(x = label, ymin = ci_lower, ymax = ci_upper),
-                  width = 0.25) +
-    geom_hline(yintercept = 0, linetype = 2) +
-    geom_text(aes(x = label, y = 0.75-0.0625, label = sell_female_delta_label), 
-              size = 4, family = "Segoe UI Semilight") +
-    theme_minimal(14) +
-    scale_y_continuous(breaks = seq(-0.75,0.75,0.25), limits = c(-0.75,0.7)) +
-    theme(panel.grid.minor.x = element_blank(),
-          panel.grid.major.x = element_blank(),
-          axis.title.y = element_markdown(),
-          text = element_text(family = "Segoe UI Semilight")) +
-    labs(y = ylab,
-         x = "Decision") + 
-    scale_x_discrete(labels = ggplot2:::parse_safe)
-  
-  return(p)
-}
 # function to compute score test statistic from fraction and sample size for null
 # hypothesis that fraction = 0.5 when only fraction and sample size is given
 compute_stat_avg <- function(avg_frac, n){
