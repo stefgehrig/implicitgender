@@ -27,9 +27,9 @@ wordpuzzles                 | Total score in the word task
 matrices                    | Total score in the logic task                           
 age                         | Participant's age (years)  
 gen                         | Participant's gender (1: female, 2: male)
-stud                        | Participant's study program
-estimate_matrices           | Belief about performance of men in logic task (% won by man vs. woman)
-belief_matrices             | Belief about others' belief about performance of men in logic task (average % won by man vs. woman)
+stud                        | Participant's university study program
+estimate_matrices           | Belief about performance of male participants in logic task (% won by male vs. female participant)
+belief_matrices             | Belief about others' belief about performance of male participants in logic task (average % won by male vs. female participant)
 payofftotal                 | Participant's total realized payoff including show-up fee (Euro)
 
 #### Data dictionary `hiring.xlsx`
@@ -66,7 +66,7 @@ wordoffer7                    | Price list offer for the word certificate 0.7 Eu
 wordoffer8                    | Price list offer for the word certificate 0.8 Euro (1: accepted, 0: declined)
 wordoffer9                    | Price list offer for the word certificate 0.9 Euro (1: accepted, 0: declined)
 wordoffer10                   | Price list offer for the word certificate 1.0 Euro (1: accepted, 0: declined)
-age                           | Participant's age in years  
+age                           | Participant's age (years) 
 gender                        | Participant's gender (1: female, 2: male)
 study                         | Participant's university study program as free text
 totalpayoff                   | Participant's total realized payoff including show-up fee (Euro)
