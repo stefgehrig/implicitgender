@@ -403,3 +403,171 @@ tab_models <- modelsummary(
                      "By discrimination types (Multiple switchers excluded)" = 4))
 
 write(tab_models, file = "latextables/tab_models.tex")
+
+################################################
+#### statistical accuracy of discrimination ####
+################################################
+# plot smoothed density of job task performance by gender
+png("figures/job_performance_gender.png", width = 1600, height = 1400, res = 375)
+ggplot(df_candidates) +
+  geom_density(aes(x = matrices, linetype = gender), key_glyph = draw_key_path) +
+  theme_bw(14) +
+  theme(panel.grid = element_blank(),
+        text = element_text(family = "Segoe UI Semilight"),
+        legend.position = "bottom") +
+  guides(linetype = guide_legend(keywidth = 2)) +
+  labs(y = "Density",
+       x = "Job task performance",
+       linetype = "Gender")
+dev.off()
+
+# table performance distribution in job task between genders
+tab_performance <- df_candidates %>% 
+  group_by(gender) %>% 
+  summarise(
+    n = n(),
+    across(matrices, .fns = list(
+      mean = mean,
+      sd = sd,
+      min = min,
+      p25 = ~quantile(.x, 0.25),
+      median = median,
+      p75 = ~quantile(.x, 0.25),
+      max = max
+    ))
+  ) %>% 
+  pivot_longer(cols = !contains("gender"),
+               names_to = "statistics",
+               values_to = "val") %>% 
+  pivot_wider(names_from = gender, values_from = val) %>% 
+  mutate(across(where(is.numeric), ~format(round_half_up(.x, 2), nsmall = 2))) %>% 
+  kable(format = "latex")
+
+write(tab_performance, file = "latextables/tab_performance.tex")
+
+# test gender difference in performance
+t.test(matrices ~ gender, data = df_candidates, var.equal = TRUE)
+
+# test first-order beliefs about gender against neutral benchmark
+with(df_candidates, t.test(estimate_matrices, mu = 50))
+
+# test second-order beliefs about gender against neutral benchmark
+with(df_candidates, t.test(belief_matrices, mu = 50))
+
+# plot beliefs by gender
+png("figures/distribution_stereotype.png", width = 1600, height = 1400, res = 375)
+set.seed(12345)
+df_candidates %>% 
+  pivot_longer(cols = c(estimate_matrices, belief_matrices),
+               names_to = "var", values_to = "val") %>% 
+  mutate(var = ifelse(grepl("est", var), "Own belief", "Others' belief")) %>% 
+  mutate(var = factor(var, ordered = TRUE, levels = c("Own belief",
+                                                      "Others' belief"))) %>% 
+  ggplot(aes(x = var, y = val)) +
+  geom_boxplot(outlier.shape = NA, fill = "grey85") +
+  stat_boxplot(geom = "errorbar", width = 0.2) +
+  geom_jitter(height = 0, width = 0.05, alpha = 0.2) +
+  geom_hline(yintercept = 50, linetype = 2) +
+  theme_bw(14) +
+  theme(panel.grid.minor.x = element_blank(),
+        panel.grid.major.x = element_blank(),
+        panel.grid.minor.y = element_blank(),
+        text = element_text(family = "Segoe UI Semilight")) +
+  scale_y_continuous(limits = c(0,100), breaks = seq(0,100,20)) +
+  labs(x = "",
+       y = "Random pairings in which\nmale outperforms female")
+dev.off()
+
+# table observed probability of superior performance conditional on compared profiles
+pairedcomp <- function(x,y){
+  comb.grid <- expand.grid(x,y)
+  a  <- sum(comb.grid[,1] > comb.grid[,2]) / nrow(comb.grid)
+  b  <- sum(comb.grid[,1] < comb.grid[,2]) / nrow(comb.grid)
+  tie <- sum(comb.grid[,1] == comb.grid[,2]) / nrow(comb.grid)
+  
+  return(data.frame(
+    proportion = c(a, b, tie),
+    outcome = c("a", "b", "tie")
+  ))}
+
+p70_w <- quantile(df_candidates$wordpuzzles, 0.7)
+p70_k <- quantile(df_candidates$generalknowledge, 0.7)
+
+n_certified <- nrow(df_candidates) * 0.3
+n_tied_w    <- sum(df_candidates$wordpuzzles == p70_w)
+n_nontied_w <- sum(df_candidates$wordpuzzles > p70_w)
+n_tied_k    <- sum(df_candidates$generalknowledge == p70_k)
+n_nontied_k <- sum(df_candidates$generalknowledge > p70_k)
+
+comb_w <- combn(1:n_tied_w, n_certified-n_nontied_w, simplify = FALSE)
+comb_k <- combn(1:n_tied_k, n_certified-n_nontied_k, simplify = FALSE)
+
+possible_datasets_w <- map(comb_w, function(x){
+  nontied_df <- df_candidates %>% 
+    filter(wordpuzzles > p70_w)
+  tied_df <- df_candidates %>% 
+    filter(wordpuzzles == p70_w) %>% 
+    {.[x,]}
+  rbind(nontied_df, tied_df) %>% as_tibble
+})
+
+possible_datasets_k <- map(comb_k, function(x){
+  nontied_df <- df_candidates %>% 
+    filter(generalknowledge > p70_k)
+  tied_df <- df_candidates %>% 
+    filter(generalknowledge == p70_k) %>% 
+    {.[x,]}
+  rbind(nontied_df, tied_df) %>% as_tibble
+})
+
+comb_w_k <- expand_grid(nr_dataset_w = 1:length(comb_w), nr_dataset_k = 1:length(comb_k))
+
+results_all_datasets <- map_dfr(1:nrow(comb_w_k), function(x){
+
+  dataset_nrs <- comb_w_k[x,]
+  dataset_w <- possible_datasets_w[[as.numeric(dataset_nrs[1])]]
+  dataset_k <- possible_datasets_k[[as.numeric(dataset_nrs[2])]]
+  
+  performances <- list(
+    `fW` = dataset_w$matrices[dataset_w$gender=="Female"],
+    `fK` = dataset_k$matrices[dataset_k$gender=="Female"],
+    `mW` = dataset_w$matrices[dataset_w$gender=="Male"],
+    `mK` = dataset_k$matrices[dataset_k$gender=="Male"],
+    `f_` = df_candidates$matrices[df_candidates$gender=="Female"],
+    `m_` = df_candidates$matrices[df_candidates$gender=="Male"],
+    `K_` = dataset_k$matrices,
+    `W_` = dataset_w$matrices,
+    `no` = df_candidates$matrices
+  )
+  
+  collected_results <- data.frame(
+    decision   = c("D1 (T1)", "D1 (T2)", "D2", "D3", "D4", "D5", "D6", "D7", "D8", "D9", rep("n.a.", 4)),
+    candidate_a = c("fW", "fK", "fK", "fW", "fW", "mW", "fK", "fW", "f_", "f_","K_","K_", "W_", "f_"),
+    candidate_b = c("mK", "mW", "mK", "mW", "fK", "mK", "m_", "m_", "mK", "mW", "W_", "no", "no", "m_")
+  )
+  
+  collected_results$tie <-  collected_results$pr_b_better <- collected_results$pr_a_better <- numeric(nrow(collected_results))
+  
+  for (i in 1:nrow(collected_results)){
+
+    prop_comp <- pairedcomp(with(performances, eval(parse(text = collected_results$candidate_a[i]))),
+                            with(performances, eval(parse(text = collected_results$candidate_b[i]))))
+    
+    collected_results$pr_a_better[i] <- prop_comp[1,1]
+    collected_results$pr_b_better[i] <- prop_comp[2,1]
+    collected_results$tie[i]         <- prop_comp[3,1]
+  }
+  
+  collected_results$pr_a_better <-  collected_results$pr_a_better +  collected_results$tie/2
+  collected_results$pr_b_better <-  collected_results$pr_b_better +  collected_results$tie/2
+  
+  return(collected_results)
+})
+
+tab_winning <- results_all_datasets %>% 
+  group_by(decision, candidate_a, candidate_b) %>% 
+  summarise(across(where(is.numeric), ~format(round_half_up(mean(.x), 3), nsmall=3)), 
+            .groups = "drop") %>% 
+  kable(format = "latex")
+
+write(tab_winning, file = "latextables/tab_winning.tex")
