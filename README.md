@@ -26,7 +26,7 @@ generalknowledge            | Total score in the knowledge task
 wordpuzzles                 | Total score in the word task                           
 matrices                    | Total score in the logic task                           
 age                         | Participant's age (years)  
-gen                         | Participant's gender (1 = female; 2 = male)
+gen                         | Participant's gender (1 = female, 2 = male)
 stud                        | Participant's university study program
 estimate_matrices           | Belief about performance of male participants in logic task (% won by male vs. female participant)
 belief_matrices             | Belief about others' belief about performance of male participants in logic task (average % won by male vs. female participant)
