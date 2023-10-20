@@ -151,7 +151,7 @@ compute_stat_indep <- function(avg_frac, n1, n2){
 }
 
 # function to compute cochran-mantel-haenszel statistic under the presence of 
-# ties due to seeling the choice
+# ties due to selling the choice
 cont_table_ties <- function(data, choicevar = "dec", decision_nrs_A, decision_nrs_B){
   
   data[,"dec"] <- data[,choicevar]
