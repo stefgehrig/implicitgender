@@ -53,7 +53,7 @@ df <- df %>%
   select(participant, contains("price")) %>% 
   left_join(df, ., by = "participant")
 
-# create column that classifies for explicit discrimination type
+# create column that classifies explicit discrimination type
 df <- df %>% 
   mutate(type = case_when(
     indif2 & indif3 ~ "non",
@@ -61,6 +61,48 @@ df <- df %>%
     !dec2 & !dec3   ~ "against_men",
     TRUE            ~ "mixed"
   ))
+
+# create column that classifies explicit discrimination type also for certificates
+df <- df %>% 
+  mutate(
+    type_cert = case_when(
+      indif4 & indif5 ~ "non",
+      dec4 & dec5  ~ "against_word",
+      !dec4 & !dec5 ~ "against_know",
+      TRUE ~ "mixed")
+  )
+
+# create columns that classify explicit discrimination type alternatively
+df <- df %>% 
+  rowwise %>% 
+  mutate(dec23_1st   = c(dec2, dec3)    [which.min(c(position2, position3))],
+         dec23_2nd   = c(dec2, dec3)    [which.max(c(position2, position3))],
+         indif23_1st = c(indif2, indif3)[which.min(c(position2, position3))],
+         indif23_2nd = c(indif2, indif3)[which.max(c(position2, position3))]) %>% 
+  ungroup %>% 
+  mutate(
+    # classification based on never selling
+    type_strict = case_when(
+      indif2 & indif3   ~ "non",
+      dec2 & dec3 & !indif2 & !indif3 ~ "against_women",
+      !dec2 & !dec3 & !indif2 & !indif3 ~ "against_men",
+      TRUE ~ "mixed"
+    ),
+    # classification based on 1st decision
+    type_1st = case_when(
+      indif23_1st==1 ~ "non",
+      dec23_1st==1  ~ "against_women",
+      !dec23_1st ~ "against_men",
+      TRUE ~ "mixed"
+    ), 
+    # classification based on 2nd decision
+    type_2nd = case_when(
+      indif23_2nd==1 ~ "non",
+      dec23_2nd==1  ~ "against_women",
+      !dec23_2nd ~ "against_men",
+      TRUE ~ "mixed"
+    )
+  )
 
 # create a long table version with one decision per row  (9 * 240 = 2160 rows)
 df_long <- df %>% 
@@ -571,3 +613,86 @@ tab_winning <- results_all_datasets %>%
   kable(format = "latex")
 
 write(tab_winning, file = "latextables/tab_winning.tex")
+
+############################
+#### robustness results ####
+############################
+# analyse implicit discrimination results when counting ultimate choices as if they were initial
+df %>% 
+  filter(type == "against_men") %>% 
+  group_by(treatment) %>% 
+  summarise(n = n(),
+            p_complex = mean(dec1 & !indif1) + mean(indif1)/2,
+            .groups = "drop") %>%
+  summarise(
+    lower_bound = p_complex[1] - (1 - p_complex[2]),
+    upper_bound = pmin(p_complex[1], p_complex[2]),
+    z           = sqrt(compute_stat_indep(mean(p_complex), n[1], n[2])) * sign(lower_bound),
+    p           = pnorm(z, lower.tail = FALSE))
+
+# analyse implicit discrimination results for alternative type definitions
+definitions <- c("type", "type_strict", "type_1st", "type_2nd")
+names(definitions) <- definitions
+
+tab_implicitalternatives <- map_dfr(definitions, .id = "definition", function(x){
+
+  df %>% 
+    filter(!!as.symbol(x) == "against_men") %>% 
+    group_by(treatment) %>% 
+    summarise(n = n(),
+              p_complex = mean(dec1),
+              .groups = "drop")
+  
+  }) %>% 
+  group_by(definition) %>% 
+  summarise(
+    lower_bound = p_complex[1] - (1 - p_complex[2]),
+    upper_bound = pmin(p_complex[1], p_complex[2]),
+    z           = sqrt(compute_stat_indep(mean(p_complex), n[1], n[2])) * sign(lower_bound),
+    p           = pnorm(z, lower.tail = FALSE)
+  ) %>% 
+  mutate(across(contains("bound"), ~format(round_half_up(.x * 100, 1), nsmall = 1))) %>% 
+  kable(format = "latex", booktabs = TRUE, linesep = "", digits = 3)
+
+write(tab_implicitalternatives, file = "latextables/tab_implicitalternatives.tex")
+
+# implicit discrimination against other attributes
+implicit_against <- c("Female gender", "Male gender", "Word certificate", "Knowledge certificate")
+
+tab_implicitattributes <- map_dfr(implicit_against, function(x){
+  
+  if (x == "Female gender"){
+    explicit_pref <- "against_men"
+    implicit_count <- "dec1"
+  }
+  if (x == "Male gender"){
+    explicit_pref <- "against_women"
+    implicit_count <- "!dec1"
+  }
+  if (x == "Word certificate"){
+    explicit_pref <- "against_know"
+    implicit_count <- "(dec1 & treatment == '1') | (!dec1 & treatment == '2')"
+  }
+  if (x == "Knowledge certificate"){
+    explicit_pref <- "against_word"
+    implicit_count <- "(dec1 & treatment == '2') | (!dec1 & treatment == '1')"
+  }
+  
+  df %>% 
+    filter(type == explicit_pref | type_cert == explicit_pref) %>% 
+    group_by(treatment) %>% 
+    summarise(n = n(),
+              p_complex = mean(eval(parse(text = implicit_count))),
+              .groups = "drop") %>%
+    summarise(
+      attribute   = x,
+      lower_bound = p_complex[1] - (1 - p_complex[2]),
+      upper_bound = pmin(p_complex[1], p_complex[2]),
+      z           = sqrt(compute_stat_indep(mean(p_complex), n[1], n[2])) * sign(lower_bound),
+      p           = pnorm(z, lower.tail = FALSE))
+}) %>% 
+  mutate(across(contains("bound"), ~format(round_half_up(.x * 100, 1), nsmall = 1))) %>% 
+  kable(format = "latex", booktabs = TRUE, linesep = "", digits = 3)
+
+write(tab_implicitattributes, file = "latextables/tab_implicitattributes.tex")
+
