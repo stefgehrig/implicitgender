@@ -102,7 +102,9 @@ df <- df %>%
       !dec23_2nd ~ "against_men",
       TRUE ~ "mixed"
     )
-  )
+  ) %>% 
+  select(-contains("dec23"),
+         -contains("indif23"))
 
 # create a long table version with one decision per row  (9 * 240 = 2160 rows)
 df_long <- df %>% 
