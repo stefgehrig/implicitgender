@@ -619,7 +619,21 @@ write(tab_winning, file = "latextables/tab_winning.tex")
 ############################
 #### robustness results ####
 ############################
-# analyse implicit discrimination results when counting ultimate choices as if they were initial
+# compare initial vs ultimate male hiring propensities in complex decision by explicit gender discriminators
+tab_types1_ult <- df %>% 
+  group_by(treatment, type) %>% 
+  summarise(frequency        = n(),
+            pr_male_dec1_ult = mean(dec1 & !indif1) + mean(indif1)/2,
+            .groups = "drop_last") %>% 
+  mutate(frequency = frequency/sum(frequency)) %>% 
+  ungroup %>% 
+  pivot_wider(names_from = treatment, values_from = c(frequency, pr_male_dec1_ult),
+              names_prefix = "t")
+
+left_join(tab_types1 %>% filter(grepl("against", type)),
+          tab_types1_ult)
+
+# analyze implicit discrimination when counting ultimate choices as if they were initial
 df %>% 
   filter(type == "against_men") %>% 
   group_by(treatment) %>% 
@@ -632,7 +646,7 @@ df %>%
     z           = sqrt(compute_stat_indep(mean(p_complex), n[1], n[2])) * sign(lower_bound),
     p           = pnorm(z, lower.tail = FALSE))
 
-# analyse implicit discrimination results for alternative type definitions
+# analyze implicit discrimination for alternative type definitions
 definitions <- c("type", "type_strict", "type_1st", "type_2nd")
 names(definitions) <- definitions
 
@@ -658,7 +672,7 @@ tab_implicitalternatives <- map_dfr(definitions, .id = "definition", function(x)
 
 write(tab_implicitalternatives, file = "latextables/tab_implicitalternatives.tex")
 
-# implicit discrimination against other attributes
+# analyze implicit discrimination against other attributes
 implicit_against <- c("Female gender", "Male gender", "Word certificate", "Knowledge certificate")
 
 tab_implicitattributes <- map_dfr(implicit_against, function(x){
@@ -697,4 +711,3 @@ tab_implicitattributes <- map_dfr(implicit_against, function(x){
   kable(format = "latex", booktabs = TRUE, linesep = "", digits = 3)
 
 write(tab_implicitattributes, file = "latextables/tab_implicitattributes.tex")
-
