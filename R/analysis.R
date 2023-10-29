@@ -616,6 +616,17 @@ tab_winning <- results_all_datasets %>%
 
 write(tab_winning, file = "latextables/tab_winning.tex")
 
+#################################
+#### role of employer gender ####
+#################################
+# propensity to hire male candidate across the seven male-vs-female decisions by employer gender
+df_long %>%
+  filter(!decision_nr %in% c(4:5)) %>% 
+  tabyl(
+    gender, dec
+  ) %>% 
+  adorn_percentages()
+
 ############################
 #### robustness results ####
 ############################
