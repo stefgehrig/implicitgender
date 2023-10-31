@@ -630,7 +630,7 @@ df_long %>%
 ############################
 #### robustness results ####
 ############################
-# compare initial vs ultimate male hiring propensities in complex decision by explicit gender discriminators
+# ultimate male choice proportion in complex decision by treatment and explicit discrimination types
 tab_types1_ult <- df %>% 
   group_by(treatment, type) %>% 
   summarise(frequency        = n(),
@@ -640,9 +640,16 @@ tab_types1_ult <- df %>%
   ungroup %>% 
   pivot_wider(names_from = treatment, values_from = c(frequency, pr_male_dec1_ult),
               names_prefix = "t")
+tab_types1_ult
 
-left_join(tab_types1 %>% filter(grepl("against", type)),
-          tab_types1_ult)
+# mean gender bias in complex decision by treatment among explicit gender discriminators
+mean_ult_dec1_types <- df %>% 
+  group_by(type, treatment) %>% 
+  summarise(dec1_ultim_male = mean(dec1 & !indif1) + mean(indif1)/2,
+            .groups = "drop_last") %>% 
+  filter(grepl("against", type)) %>% 
+  summarise(mean(dec1_ultim_male)) %>% pull
+(mean_ult_dec1_types-0.5)*2
 
 # analyze implicit discrimination when counting ultimate choices as if they were initial
 df %>% 
