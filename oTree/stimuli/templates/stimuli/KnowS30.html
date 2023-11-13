@@ -1,0 +1,19 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+        Teilaufgabe 30
+{% endblock %}
+
+{% block content %}
+    <br><br>
+Wer war kein Gründungsmitglied der Castingband „No Angels“?
+<br><br>
+        {% formfield  player.KnowS30 with label="Wählen Sie Ihre Antwort" %}
+
+
+  <br>
+
+    {% next_button %}
+
+{% endblock %}

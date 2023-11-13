@@ -1,0 +1,79 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block app_styles %}
+<style>
+    ul.answers {
+        margin: 0 3em 0 0;
+        padding: 0;
+        font-size: 0.9em;
+        list-style-type: none;
+    }
+
+    ul.answers li {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul.answers .checkbox {
+        margin: 0;
+        padding: 0;
+        min-height: auto;
+    }
+</style>
+{% endblock %}
+{% block title %}
+    Worträtsel 1
+{% endblock %}
+
+
+{% block content %}
+ <font size="5">Kategorie: Tiere</font>
+
+<div style="float: left; margin: 2em 2em 0 0;">
+    <ul class="answers" style="float: left">
+            <li>{% formfield player.word1 with label="ADLER"%}</li>
+            <li>{% formfield player.word2 with label="AFFE"%}</li>
+            <li>{% formfield player.word3 with label="AMEISE"%}</li>
+            <li>{% formfield player.word4 with label="BIENE"%}</li>
+            <li>{% formfield player.word5 with label="DACHS"%}</li>
+            <li>{% formfield player.word6 with label="EIDECHSE"%}</li>
+            <li>{% formfield player.word7 with label="ELEFANT"%}</li>
+            <li>{% formfield player.word8 with label="FLAMINGO"%}</li>
+            <li>{% formfield player.word9 with label="FROSCH"%}</li>
+            <li>{% formfield player.word10 with label="FUCHS"%}</li>
+            <li>{% formfield player.word11 with label="GIRAFFE"%}</li>
+            <li>{% formfield player.word12 with label="HAI"%}</li>
+            <li>{% formfield player.word13 with label="HAMSTER"%}</li>
+            <li>{% formfield player.word14 with label="HUND"%}</li>
+            <li>{% formfield player.word15 with label="IGEL"%}</li>
+    </ul>
+
+    <ul class="answers" style="float: left";>
+        <li>{% formfield player.word16 with label="JAGUAR"%}</li>
+        <li>{% formfield player.word17 with label="KATZE"%}</li>
+        <li>{% formfield player.word18 with label="KOALA"%}</li>
+        <li>{% formfield player.word19 with label="KUH"%}</li>
+        <li>{% formfield player.word20 with label="MAULWURF"%}</li>
+        <li>{% formfield player.word21 with label="NASHORN"%}</li>
+        <li>{% formfield player.word22 with label="PFERD"%}</li>
+        <li>{% formfield player.word23 with label="SCHLANGE"%}</li>
+        <li>{% formfield player.word24 with label="SPINNE"%}</li>
+        <li>{% formfield player.word25 with label="TIGER"%}</li>
+        <li>{% formfield player.word26 with label="VOGEL"%}</li>
+        <li>{% formfield player.word27 with label="WAL"%}</li>
+        <li>{% formfield player.word28 with label="WURM"%}</li>
+        <li>{% formfield player.word29 with label="ZEBRA"%}</li>
+        <li>{% formfield player.word30 with label="ZIEGE"%}</li>
+
+    </ul>
+</div>
+
+<img src="{%  static "images/word1.jpg" %}"/>
+
+<div style="clear: left"></div>
+
+    <br><br>
+
+
+{% endblock %}

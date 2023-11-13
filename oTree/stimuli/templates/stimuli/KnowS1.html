@@ -1,0 +1,19 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+        Teilaufgabe 1
+{% endblock %}
+
+{% block content %}
+    <br><br>
+Welches Gas kommt am häufigsten in der Erdatmosphäre vor?
+<br><br>
+        {% formfield  player.KnowS1 with label="Wählen Sie Ihre Antwort" %}
+
+
+  <br>
+
+    {% next_button %}
+
+{% endblock %}

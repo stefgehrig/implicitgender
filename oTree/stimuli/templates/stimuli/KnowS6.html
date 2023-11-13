@@ -1,0 +1,21 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+        Teilaufgabe 6
+{% endblock %}
+
+{% block content %}
+    <br><br>
+    In welchem Land hat die Bundeswehr derzeit kein Mandat?
+
+<br><br>
+        {% formfield  player.KnowS6 with label="Wählen Sie Ihre Antwort" %}
+
+
+
+  <br>
+
+    {% next_button %}
+
+{% endblock %}

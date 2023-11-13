@@ -1,0 +1,462 @@
+{% extends "otreeutils/ExtendedPage.html" %}
+{% load staticfiles otree_tags %}
+{% load index %}
+
+{% block content %}
+
+
+
+    <head>
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+.column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+</style>
+</head>
+<body>
+
+{% if player.treat == "einsA" and player.diagonal == 1 or player.treat == "zweiA" and player.diagonal == 1 or player.treat == "einsB" and player.diagonal == 0 or player.treat == "zweiB" and player.diagonal == 0%}
+
+<h3><b>Welche Person wählen Sie für Logisches Folgern?</b></h3>
+
+    {% if player.treat == "einsA" %}
+
+<div class="row">
+
+  <div class="column">
+        <fieldset>
+    <h2>Person A</h2>
+      <img style="border: #000000 1px outset; max-width: 200px; height: auto; " src="{%  static "images/guy.png" %}"/><br><br>
+      <font size="4">
+            <p><b><u>Geschlecht:</u></b><br>
+          Männlich</p>
+      <p><b><u>Zertifikate:</u></b><br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxyes.png" %}"/> Wissen<br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxno.png" %}"/> Wörter</p>
+      </font>
+        </fieldset>
+  </div>
+
+
+  <div class="column">
+    <h2>Person B</h2>
+      <img style="border: #000000 1px outset; max-width: 200px; height: auto; " src="{%  static "images/girl.png" %}"/><br><br>
+      <font size="4">
+      <p><b><u>Geschlecht:</u></b><br>
+          Weiblich</p>
+      <p><b><u>Zertifikate:</u></b><br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxno.png" %}"/> Wissen<br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxyes.png" %}"/> Wörter</p>
+      </font>
+  </div>
+
+</div>
+
+{% endif %}
+
+{% if player.treat == "einsB" %}
+
+<div class="row">
+
+  <div class="column">
+        <fieldset>
+    <h2>Person A</h2>
+      <img style="border: #000000 1px outset; max-width: 200px; height: auto; " src="{%  static "images/girl.png" %}"/><br><br>
+      <font size="4">
+            <p><b><u>Geschlecht:</u></b><br>
+          Weiblich</p>
+      <p><b><u>Zertifikate:</u></b><br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxno.png" %}"/> Wissen<br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxyes.png" %}"/> Wörter</p>
+      </font>
+        </fieldset>
+  </div>
+
+
+  <div class="column">
+    <h2>Person B</h2>
+    <img style="border: #000000 1px outset; max-width: 200px; height: auto; " src="{%  static "images/guy.png" %}"/><br><br>
+      <font size="4">
+      <p><b><u>Geschlecht:</u></b><br>
+          Männlich</p>
+      <p><b><u>Zertifikate:</u></b><br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxyes.png" %}"/> Wissen<br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxno.png" %}"/> Wörter</p>
+      </font>
+  </div>
+
+</div>
+
+{% endif %}
+
+{% if player.treat == "zweiA" %}
+
+<div class="row">
+
+  <div class="column">
+        <fieldset>
+    <h2>Person A</h2>
+      <img style="border: #000000 1px outset; max-width: 200px; height: auto; " src="{%  static "images/guy.png" %}"/><br><br>
+      <font size="4">
+            <p><b><u>Geschlecht:</u></b><br>
+          Männlich</p>
+      <p><b><u>Zertifikate:</u></b><br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxno.png" %}"/> Wissen<br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxyes.png" %}"/> Wörter</p>
+      </font>
+        </fieldset>
+  </div>
+
+
+  <div class="column">
+    <h2>Person B</h2>
+      <img style="border: #000000 1px outset; max-width: 200px; height: auto; " src="{%  static "images/girl.png" %}"/><br><br>
+      <font size="4">
+      <p><b><u>Geschlecht:</u></b><br>
+          Weiblich</p>
+      <p><b><u>Zertifikate:</u></b><br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxyes.png" %}"/> Wissen<br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxno.png" %}"/> Wörter</p>
+      </font>
+  </div>
+
+</div>
+
+{% endif %}
+
+{% if player.treat == "zweiB" %}
+
+<div class="row">
+
+  <div class="column">
+        <fieldset>
+    <h2>Person A</h2>
+      <img style="border: #000000 1px outset; max-width: 200px; height: auto; " src="{%  static "images/girl.png" %}"/><br><br>
+      <font size="4">
+            <p><b><u>Geschlecht:</u></b><br>
+          Weiblich</p>
+      <p><b><u>Zertifikate:</u></b><br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxyes.png" %}"/> Wissen<br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxno.png" %}"/> Wörter</p>
+      </font>
+        </fieldset>
+  </div>
+
+
+  <div class="column">
+    <h2>Person B</h2>
+    <img style="border: #000000 1px outset; max-width: 200px; height: auto; " src="{%  static "images/guy.png" %}"/><br><br>
+      <font size="4">
+      <p><b><u>Geschlecht:</u></b><br>
+          Männlich</p>
+      <p><b><u>Zertifikate:</u></b><br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxno.png" %}"/> Wissen<br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxyes.png" %}"/> Wörter</p>
+      </font>
+  </div>
+
+</div>
+
+
+{% endif %}
+
+        <h3>Sie haben <font color=#46C646> Person A</font> gewählt.</h3><br>
+
+{% endif %}
+
+{% if player.treat == "einsB" and player.diagonal == 1 or player.treat == "zweiB" and player.diagonal == 1 or player.treat == "einsA" and player.diagonal == 0 or player.treat == "zweiA" and player.diagonal == 0%}
+
+<h3><b>Welche Person wählen Sie für Logisches Folgern?</b></h3>
+
+{% if player.treat == "einsA" %}
+
+<div class="row">
+
+  <div class="column">
+    <h2>Person A</h2>
+      <img style="border: #000000 1px outset; max-width: 200px; height: auto; " src="{%  static "images/guy.png" %}"/><br><br>
+      <font size="4">
+      <p><b><u>Geschlecht:</u></b><br>
+          Männlich</p>
+      <p><b><u>Zertifikate:</u></b><br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxyes.png" %}"/> Wissen<br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxno.png" %}"/> Wörter</p>
+      </font>
+  </div>
+
+
+  <div class="column">
+        <fieldset>
+    <h2>Person B</h2>
+      <img style="border: #000000 1px outset; max-width: 200px; height: auto; " src="{%  static "images/girl.png" %}"/><br><br>
+      <font size="4">
+            <p><b><u>Geschlecht:</u></b><br>
+          Weiblich</p>
+      <p><b><u>Zertifikate:</u></b><br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxno.png" %}"/> Wissen<br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxyes.png" %}"/> Wörter</p>
+      </font>
+        </fieldset>
+  </div>
+
+</div>
+
+{% endif %}
+
+{% if player.treat == "einsB" %}
+
+<div class="row">
+
+  <div class="column">
+    <h2>Person A</h2>
+      <img style="border: #000000 1px outset; max-width: 200px; height: auto; " src="{%  static "images/girl.png" %}"/><br><br>
+      <font size="4">
+      <p><b><u>Geschlecht:</u></b><br>
+          Weiblich</p>
+      <p><b><u>Zertifikate:</u></b><br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxno.png" %}"/> Wissen<br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxyes.png" %}"/> Wörter</p>
+      </font>
+  </div>
+
+
+  <div class="column">
+        <fieldset>
+    <h2>Person B</h2>
+    <img style="border: #000000 1px outset; max-width: 200px; height: auto; " src="{%  static "images/guy.png" %}"/><br><br>
+      <font size="4">
+            <p><b><u>Geschlecht:</u></b><br>
+          Männlich</p>
+      <p><b><u>Zertifikate:</u></b><br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxyes.png" %}"/> Wissen<br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxno.png" %}"/> Wörter</p>
+      </font>
+        </fieldset>
+  </div>
+
+</div>
+
+{% endif %}
+
+{% if player.treat == "zweiA" %}
+
+<div class="row">
+
+  <div class="column">
+    <h2>Person A</h2>
+      <img style="border: #000000 1px outset; max-width: 200px; height: auto; " src="{%  static "images/guy.png" %}"/><br><br>
+      <font size="4">
+      <p><b><u>Geschlecht:</u></b><br>
+          Männlich</p>
+      <p><b><u>Zertifikate:</u></b><br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxno.png" %}"/> Wissen<br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxyes.png" %}"/> Wörter</p>
+      </font>
+  </div>
+
+
+  <div class="column">
+        <fieldset>
+    <h2>Person B</h2>
+      <img style="border: #000000 1px outset; max-width: 200px; height: auto; " src="{%  static "images/girl.png" %}"/><br><br>
+      <font size="4">
+            <p><b><u>Geschlecht:</u></b><br>
+          Weiblich</p>
+      <p><b><u>Zertifikate:</u></b><br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxyes.png" %}"/> Wissen<br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxno.png" %}"/> Wörter</p>
+      </font>
+        </fieldset>
+  </div>
+
+</div>
+
+{% endif %}
+
+{% if player.treat == "zweiB" %}
+
+<div class="row">
+
+  <div class="column">
+    <h2>Person A</h2>
+      <img style="border: #000000 1px outset; max-width: 200px; height: auto; " src="{%  static "images/girl.png" %}"/><br><br>
+      <font size="4">
+      <p><b><u>Geschlecht:</u></b><br>
+          Weiblich</p>
+      <p><b><u>Zertifikate:</u></b><br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxyes.png" %}"/> Wissen<br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxno.png" %}"/> Wörter</p>
+      </font>
+  </div>
+
+
+  <div class="column">
+        <fieldset>
+    <h2>Person B</h2>
+    <img style="border: #000000 1px outset; max-width: 200px; height: auto; " src="{%  static "images/guy.png" %}"/><br><br>
+      <font size="4">
+            <p><b><u>Geschlecht:</u></b><br>
+          Männlich</p>
+      <p><b><u>Zertifikate:</u></b><br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxno.png" %}"/> Wissen<br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxyes.png" %}"/> Wörter</p>
+      </font>
+        </fieldset>
+  </div>
+
+</div>
+
+
+
+{% endif %}
+
+        <h3>Sie haben <font color=#46C646> Person B</font> gewählt.</h3><br>
+
+{% endif %}
+
+</body>
+
+<h3><b>Würden Sie Ihre Entscheidung dem Zufall überlassen?</b></h3>
+
+
+
+
+ {% if player.indif1 == 1 %}
+
+    <h3>Sie haben <font color=#46C646> Ja</font> gewählt.</h3><br>
+
+{% endif %}
+
+    {% if player.indif1 == 0 %}
+
+    <h3>Sie haben <font color=#46C646> Nein</font> gewählt.</h3><br>
+
+{% endif %}
+
+
+    <h3><b>Wie entscheiden Sie sich in der folgenden Situation?</b></h3><br>
+    <p>Ihre bisherigen Entscheidungen wurden gez&auml;hlt, und Sie können nun zusätzlich Geld verdienen. Es wurde f&uuml;r Sie <strong>eine neue Person</strong> f&uuml;r den Job ausgew&auml;hlt, welche vom Computer <strong>zuf&auml;llig</strong> aus allen 80 Teilnehmern gezogen wurde. Sie erhalten keine weiteren Informationen &uuml;ber diese Person.</p>
+<p>Sie haben nun die M&ouml;glichkeit, stattdessen eine Person f&uuml;r den Job zu w&auml;hlen, welche<strong> ein bestimmtes Zertifikat</strong> hat. Diese Person wird dann wiederum zuf&auml;llig vom Computer gezogen, allerdings aus den 24 besten Teilnehmern der dem Zertifikat entsprechenden Aufgabe.</p>
+    <p>Sie erhalten <strong>3 &euro;</strong>, falls die schlussendlich gew&auml;hlte Person zu den <strong>besten 50 % (= zu den besten 40 Personen)</strong> f&uuml;r den Job, also in der Aufgabe <strong><u>Logisches Folgern</u></strong> geh&ouml;rt (Gleichstände werden per Zufall entschieden).</p>
+
+
+<p><span>Wir m&ouml;chten nun wissen, wieviel Ihnen die beiden m&ouml;glichen Zertifikate, in&nbsp;<strong><u><span>Wissen</span></u></strong>&nbsp;bzw. in&nbsp;<strong><u><span>Wörter</span></u></strong>, wert sind. F&uuml;r jedes der beiden Zertifikate bekommen Sie eine Preisliste. Das hei&szlig;t, wir schlagen Ihnen in aufsteigender Reihenfolge Preise vor, zu denen Sie die zuf&auml;llig aus allen 80 Teilnehmern gezogene Person durch eine Person mit diesem Zertifikat ersetzen k&ouml;nnen. Sie haben jeweils ein Budget von 1 &euro; zur Verf&uuml;gung und entscheiden f&uuml;r jeden Preis, ob Sie diesen Preis zahlen w&uuml;rden (&bdquo;Ja&ldquo;) oder nicht (&bdquo;Nein&ldquo;).</span></p>
+<p><span>Wenn Sie alle Entscheidungen f&uuml;r beide Preislisten getroffen haben, w&auml;hlt der Computer zuf&auml;llig eine dieser Entscheidungen aus, welche dann zu Ihrer Entlohnung beitr&auml;gt. Falls Sie in dieser Entscheidung mit &bdquo;Ja&ldquo; geantwortet haben, wird die Ersetzung zum angegeben Preis vorgenommen. Sie erhalten dann den Restbetrag des&nbsp;<strong><span>1 &euro;</span></strong>, und zus&auml;tzlich&nbsp;<strong><span>3 &euro;</span></strong>&nbsp;falls die ausgew&auml;hlte Person&nbsp;<strong><span>mit Zertifikat</span></strong>&nbsp;zu den besten 50 % f&uuml;r den Job&nbsp;<strong><u><span>Logisches Folgern</span></u></strong> geh&ouml;rt. Falls Sie in dieser Entscheidung dagegen mit &bdquo;Nein&ldquo; geantwortet haben, wird keine Ersetzung vorgenommen. Sie erhalten dann den vollen&nbsp;<strong><span>1 &euro;</span></strong>, und zus&auml;tzlich&nbsp;<strong><span>3 &euro;</span></strong>&nbsp;falls die urspr&uuml;nglich aus allen 80 Teilnehmern ausgew&auml;hlte Person zu den besten 50 % f&uuml;r den Job <strong><u><span>Logisches Folgern</span></u></strong> geh&ouml;rt.</span></p>
+<br>
+    <font color="red">
+<p><span>Um die h&ouml;chstm&ouml;gliche Entlohnung zu erzielen, sollten Sie jede Entscheidung so treffen, als w&auml;re sie relevant f&uuml;r Ihre Entlohnung. Gehen Sie dazu jede der beiden Listen&nbsp;<strong><span>von oben (niedrigster Preis) nach unten (h&ouml;chster Preis)</span></strong>&nbsp;durch und antworten Sie dabei so lange durchgehend mit &bdquo;Ja&ldquo;, bis Sie den ersten Preis erreichen, der Ihnen zu hoch ist. Antworten Sie dann ab dieser Zeile, bis zum h&ouml;chsten Preis am Ende der Liste, durchgehend mit &bdquo;Nein&ldquo;. Je sicherer Sie sich also sind, dass eine Person&nbsp;<strong><span>mit dem entsprechenden Zertifikat</span></strong>&nbsp;eher zu den besten 50 % in der Aufgabe <strong><u><span>Logisches Folgern</span></u></strong>&nbsp;geh&ouml;rt als eine&nbsp;<strong><span>beliebige</span></strong>&nbsp;zuf&auml;llige Person, f&uuml;r umso mehr Preise sollten Sie zu Beginn der Liste mit &bdquo;Ja&ldquo; antworten, bevor Sie zu &bdquo;Nein&ldquo; wechseln.</span></p>
+    </font>
+
+    <br><p><strong>Preisliste 1:</strong> Hier geht es um das Zertifikat in <strong><u>Wissen</u></strong>. Sie haben <strong>1 &euro;</strong> zur freien Verf&uuml;gung. Bitte antworten Sie in jeder Zeile, bevor Sie den Button klicken.</p>
+
+   <table class="table">
+    <tr>
+        <th> </th><th><font size="4">Ja</font></th><th><font size="4">Nein</font></th>
+    </tr>
+    {% for number in offer_numbers %}
+    <tr>
+        <td>Ich würde <b>{{ price|index:number }}</b> bezahlen um die beliebige Person durch eine mit Zertifikat in <b>Wissen</b> zu ersetzen.</td>
+        <td><input type="radio" name="offerone_{{ number }}" value="True" required></td>
+        <td><input type="radio" name="offerone_{{ number }}" value="False" required></td>
+    </tr>
+    {% endfor %}
+</table> <br>
+
+    <p><strong>Preisliste 2:</strong> Hier geht es um das Zertifikat in <strong><u>Wörter</u></strong>. Sie haben <strong>1 &euro;</strong> zur freien Verf&uuml;gung. Bitte antworten Sie in jeder Zeile, bevor Sie den Button klicken.</p>
+
+     <table class="table">
+    <tr>
+        <th> </th><th><font size="4">Ja</font></th><th><font size="4">Nein</font></th>
+    </tr>
+    {% for number in offer_numbers %}
+    <tr>
+        <td>Ich würde <b>{{ price|index:number }}</b> bezahlen um die beliebige Person durch eine mit Zertifikat in <b>Wörter</b> zu ersetzen.</td>
+        <td><input type="radio" name="offertwo_{{ number }}" value="True" required></td>
+        <td><input type="radio" name="offertwo_{{ number }}" value="False" required></td>
+    </tr>
+    {% endfor %}
+</table>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+/* Create three unequal columns that floats next to each other */
+.column {
+    float: left;
+    padding: 10px;
+    text-align:left;
+    vertical-align:middle;
+
+}
+
+.left, .right {
+  width: 27%;
+}
+
+.middle {
+  width: 46%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+
+
+</style>
+
+
+
+
+<br>
+
+
+
+{% next_button %}
+
+
+{% endblock %}
+
+{% block styles %}
+
+    <style type="text/css">
+
+    FIELDSET {
+    margin: 8px;
+        border: 5px;
+    padding: 8px;
+        border-style: solid;
+        border-color: #46C646;
+    border-radius: 4px;
+}
+
+
+    </style>
+
+{% endblock %}

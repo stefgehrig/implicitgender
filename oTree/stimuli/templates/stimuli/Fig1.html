@@ -1,0 +1,22 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Teilaufgabe 1
+{% endblock %}
+
+
+{% block content %}
+    <br><br>
+
+<img src="{%  static "images/1.jpg" %}"/>
+
+<br><br>
+        {% formfield  player.Fig1 with label="Wählen Sie Ihre Antwort" %}
+
+
+  <br>
+
+    {% next_button %}
+
+{% endblock %}

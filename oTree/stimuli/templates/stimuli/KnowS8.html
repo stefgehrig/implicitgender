@@ -1,0 +1,20 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+        Teilaufgabe 8
+{% endblock %}
+
+{% block content %}
+    <br><br>
+Wie kam Rock-’n’-Roll-Star Buddy Holly 1959 ums Leben?
+<br><br>
+        {% formfield  player.KnowS8 with label="Wählen Sie Ihre Antwort" %}
+
+
+
+  <br>
+
+    {% next_button %}
+
+{% endblock %}

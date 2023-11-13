@@ -1,0 +1,20 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+        Teilaufgabe 25
+{% endblock %}
+
+{% block content %}
+    <br><br>
+    Was ist das aktuell teuerste verkaufte Gemälde?
+<br><br>
+        {% formfield  player.KnowS25 with label="Wählen Sie Ihre Antwort" %}
+
+
+
+  <br>
+
+    {% next_button %}
+
+{% endblock %}

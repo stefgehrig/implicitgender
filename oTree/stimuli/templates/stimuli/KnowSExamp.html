@@ -1,0 +1,21 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+{% load otreechat %}
+
+{% block title %}
+    Beispiel
+{% endblock %}
+
+{% block content %}
+    <br><br>
+Wer war nie deutscher Bundespräsident?
+
+<br><br>
+        {% formfield  player.exampleKnowS with label="Wählen Sie Ihre Antwort" %}
+
+
+  <br>
+
+    {% next_button %}
+
+{% endblock %}

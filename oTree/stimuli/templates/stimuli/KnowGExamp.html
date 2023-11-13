@@ -1,0 +1,22 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+{% load otreechat %}
+
+{% block title %}
+    General knowledge in groups: Example
+{% endblock %}
+
+{% block content %}
+    <br><br>
+Wer war nie deutscher Bundespräsident?
+
+<br><br>
+        {% formfield  player.exampleKnowG with label="Wählen Sie die Antwort Ihrer Gruppe" %}
+
+    {% chat %}
+
+  <br>
+
+    {% next_button %}
+
+{% endblock %}

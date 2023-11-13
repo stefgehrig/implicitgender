@@ -1,0 +1,116 @@
+{% extends "otreeutils/ExtendedPage.html" %}
+{% load staticfiles otree_tags %}
+{% block content %}
+
+
+    <head>
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+.column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+</style>
+</head>
+
+
+<body>
+
+<h3><b>Welche Person wählen Sie für Logisches Folgern?</b></h3>
+
+{% if player.treat == "treatB" %}
+
+<div class="row">
+
+  <div class="column">
+    <h2>Person A</h2>
+      <img style="border: #000000 1px outset; max-width: 200px; height: auto; " src="{%  static "images/guy.png" %}"/><br><br>
+      <font size="4">
+      <p><b><u>Geschlecht:</u></b><br>
+          Männlich</p>
+      <p><b><u>Zertifikate:</u></b><br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxno.png" %}"/> Wissen<br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxyes.png" %}"/> Wörter</p>
+      </font><br>
+      <div>
+          <button name="dec3" value="True" class="btn btn-primary btn-large">Person A</button>
+      </div>
+  </div>
+
+
+  <div class="column">
+    <h2>Person B</h2>
+      <img style="border: #000000 1px outset; max-width: 200px; height: auto; " src="{%  static "images/girl.png" %}"/><br><br>
+      <font size="4">
+      <p><b><u>Geschlecht:</u></b><br>
+          Weiblich</p>
+      <p><b><u>Zertifikate:</u></b><br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxno.png" %}"/> Wissen<br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxyes.png" %}"/> Wörter</p>
+      </font><br>
+      <div>
+          <button name="dec3" value="False" class="btn btn-primary btn-large">Person B</button>
+      </div>
+  </div>
+
+</div>
+
+{% endif %}
+
+{% if player.treat == "treatA" %}
+
+<div class="row">
+
+  <div class="column">
+    <h2>Person A</h2>
+      <img style="border: #000000 1px outset; max-width: 200px; height: auto; " src="{%  static "images/girl.png" %}"/><br><br>
+      <font size="4">
+      <p><b><u>Geschlecht:</u></b><br>
+          Weiblich</p>
+      <p><b><u>Zertifikate:</u></b><br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxno.png" %}"/> Wissen<br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxyes.png" %}"/> Wörter</p>
+      </font><br>
+      <div>
+          <button name="dec3" value="False" class="btn btn-primary btn-large">Person A</button>
+      </div>
+  </div>
+
+
+  <div class="column">
+    <h2>Person B</h2>
+    <img style="border: #000000 1px outset; max-width: 200px; height: auto; " src="{%  static "images/guy.png" %}"/><br><br>
+      <font size="4">
+      <p><b><u>Geschlecht:</u></b><br>
+          Männlich</p>
+      <p><b><u>Zertifikate:</u></b><br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxno.png" %}"/> Wissen<br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxyes.png" %}"/> Wörter</p>
+      </font><br>
+      <div>
+          <button name="dec3" value="True" class="btn btn-primary btn-large">Person B</button>
+      </div>
+  </div>
+
+</div>
+
+{% endif %}
+
+</body>
+
+
+{% endblock %}

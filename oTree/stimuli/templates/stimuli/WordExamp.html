@@ -1,0 +1,80 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block app_styles %}
+<style>
+    ul.answers {
+        margin: 0 3em 0 0;
+        padding: 0;
+        font-size: 0.9em;
+        list-style-type: none;
+    }
+
+    ul.answers li {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul.answers .checkbox {
+        margin: 0;
+        padding: 0;
+        min-height: auto;
+    }
+</style>
+{% endblock %}
+
+{% block title %}
+    Word puzzles Example: Study subjects
+{% endblock %}
+
+{% block content %}
+
+    <font size="5">Kategorie: Studienfächer</font>
+
+<div style="float: left; margin: 2em 2em 0 0;">
+    <ul class="answers" style="float: left">
+            <li>{% formfield player.word1 with label="ARCHITEKTUR"%}</li>
+            <li>{% formfield player.word2 with label="BIOCHEMIE"%}</li>
+            <li>{% formfield player.word3 with label="BIOLOGIE"%}</li>
+            <li>{% formfield player.word4 with label="CHEMIE"%}</li>
+            <li>{% formfield player.word5 with label="ETHNOLOGIE"%}</li>
+            <li>{% formfield player.word6 with label="FOTOGRAFIE"%}</li>
+            <li>{% formfield player.word7 with label="GEOGRAPHIE"%}</li>
+            <li>{% formfield player.word8 with label="GEOLOGIE"%}</li>
+            <li>{% formfield player.word9 with label="GERMANISTIK"%}</li>
+            <li>{% formfield player.word10 with label="GESCHICHTE"%}</li>
+            <li>{% formfield player.word11 with label="INDOLOGIE"%}</li>
+            <li>{% formfield player.word12 with label="INFORMATIK"%}</li>
+            <li>{% formfield player.word13 with label="JURA"%}</li>
+            <li>{% formfield player.word14 with label="LIGUISTIK"%}</li>
+            <li>{% formfield player.word15 with label="MASCHINENBAU"%}</li>
+    </ul>
+
+    <ul class="answers" style="float: left";>
+        <li>{% formfield player.word16 with label="MATHEMATIK"%}</li>
+        <li>{% formfield player.word17 with label="MEDIENDESIGN"%}</li>
+        <li>{% formfield player.word18 with label="MEDIZIN"%}</li>
+        <li>{% formfield player.word19 with label="MODEDESIGN"%}</li>
+        <li>{% formfield player.word20 with label="MUSIK"%}</li>
+        <li>{% formfield player.word21 with label="PHARMAZIE"%}</li>
+        <li>{% formfield player.word22 with label="PHILOSOPHIE"%}</li>
+        <li>{% formfield player.word23 with label="POLITIK"%}</li>
+        <li>{% formfield player.word24 with label="PSYCHOLOGY"%}</li>
+        <li>{% formfield player.word25 with label="ROMANISTIK"%}</li>
+        <li>{% formfield player.word26 with label="SOZIOLOGIE"%}</li>
+        <li>{% formfield player.word27 with label="SPORT"%}</li>
+        <li>{% formfield player.word28 with label="THEATER"%}</li>
+        <li>{% formfield player.word29 with label="TOURISMUS"%}</li>
+        <li>{% formfield player.word30 with label="WIRTSCHAFT"%}</li>
+
+    </ul>
+</div>
+
+<img src="{%  static "images/worde.jpg" %}"/>
+
+<div style="clear: left"></div>
+
+    <br><br>
+
+
+{% endblock %}

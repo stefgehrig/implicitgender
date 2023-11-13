@@ -1,0 +1,30 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Word puzzles: Solution for the example
+{% endblock %}
+
+{% block content %}
+
+    <img src="{%  static "images/wordesol.jpg" %}"/>
+
+    <br><br>
+
+    The hidden words were: <br><br>
+    BIOLOGIE, CHEMIE, ETHNOLOGIE, GESCHICHTE, JURA, MATHEMATIK, MEDIZIN, MUSIK, PSYCHOLOGIE, SOZIOLOGIE
+
+    <br><br>
+    You had {{ c }} correct responses and {{ a }} incorrect responses.
+
+  {% if player.result_word_e > 0 %}
+    So, in total, you would have earned {{ player.payoff_word_e }} for this puzzle.{% endif %}
+    {% if player.payoff_word_e == 0 %}
+    So, in total, you would have earned nothing for this puzzle.{% endif %}
+
+ <br><br>
+    {% next_button %}
+
+{% endblock %}
+
+

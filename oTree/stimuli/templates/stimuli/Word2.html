@@ -1,0 +1,79 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block app_styles %}
+<style>
+    ul.answers {
+        margin: 0 3em 0 0;
+        padding: 0;
+        font-size: 0.9em;
+        list-style-type: none;
+    }
+
+    ul.answers li {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul.answers .checkbox {
+        margin: 0;
+        padding: 0;
+        min-height: auto;
+    }
+</style>
+{% endblock %}
+{% block title %}
+    Worträtsel 2
+{% endblock %}
+
+
+{% block content %}
+ <font size="5">Kategorie: Länder</font>
+
+<div style="float: left; margin: 2em 2em 0 0;">
+    <ul class="answers" style="float: left">
+            <li>{% formfield player.word1 with label="ASERBAIDSCHAN"%}</li>
+            <li>{% formfield player.word2 with label="BELGIEN"%}</li>
+            <li>{% formfield player.word3 with label="CHILE"%}</li>
+            <li>{% formfield player.word4 with label="CHINA"%}</li>
+            <li>{% formfield player.word5 with label="IRAN"%}</li>
+            <li>{% formfield player.word6 with label="ISRAEL"%}</li>
+            <li>{% formfield player.word7 with label="ITALIEN"%}</li>
+            <li>{% formfield player.word8 with label="JAPAN"%}</li>
+            <li>{% formfield player.word9 with label="KAMBODSCHA"%}</li>
+            <li>{% formfield player.word10 with label="KAMERUN"%}</li>
+            <li>{% formfield player.word11 with label="KANADA"%}</li>
+            <li>{% formfield player.word12 with label="KOLUMBIEN"%}</li>
+            <li>{% formfield player.word13 with label="KROATIEN"%}</li>
+            <li>{% formfield player.word14 with label="LAOS"%}</li>
+            <li>{% formfield player.word15 with label="LIBYEN"%}</li>
+    </ul>
+
+    <ul class="answers" style="float: left";>
+        <li>{% formfield player.word16 with label="MAROKKO"%}</li>
+        <li>{% formfield player.word17 with label="NAMIBIA"%}</li>
+        <li>{% formfield player.word18 with label="NORWEGEN"%}</li>
+        <li>{% formfield player.word19 with label="PERU"%}</li>
+        <li>{% formfield player.word20 with label="POLEN"%}</li>
+        <li>{% formfield player.word21 with label="PORTUGAL"%}</li>
+        <li>{% formfield player.word22 with label="RUSSLAND"%}</li>
+        <li>{% formfield player.word23 with label="SCHWEDEN"%}</li>
+        <li>{% formfield player.word24 with label="SCHWEIZ"%}</li>
+        <li>{% formfield player.word25 with label="SENEGAL"%}</li>
+        <li>{% formfield player.word26 with label="SINGAPUR"%}</li>
+        <li>{% formfield player.word27 with label="SPANIEN"%}</li>
+        <li>{% formfield player.word28 with label="TANSANIA"%}</li>
+        <li>{% formfield player.word29 with label="THAILAND"%}</li>
+        <li>{% formfield player.word30 with label="VENEZUELA"%}</li>
+
+    </ul>
+</div>
+
+<img src="{%  static "images/word2.jpg" %}"/>
+
+<div style="clear: left"></div>
+
+    <br><br>
+
+
+{% endblock %}

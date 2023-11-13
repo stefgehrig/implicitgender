@@ -1,0 +1,73 @@
+{% extends "otreeutils/ExtendedPage.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+Einführung
+{% endblock %}
+
+{% block content %}
+<p><span>Im heutigen Experiment &uuml;bernehmen Sie die Rolle eines <strong>Arbeitgebers</strong>. Sie entscheiden jeweils, welche von zwei Personen Sie f&uuml;r eine Aufgabe ausw&auml;hlen (also f&uuml;r einen Job anstellen). Ihre <strong>Einnahmen</strong> h&auml;ngen davon ab, ob die ausgew&auml;hlte Person den Job <strong>besser</strong> als die andere macht. F&uuml;r Ihre Entscheidung erhalten Sie jeweils ein<strong> kurzes Profil </strong>mit Informationen zu den Personen. </span></p>
+    <p><font color="red"><strong><span><h4>Wer sind die Personen?</h4></span></strong></font></p>
+<p><span>Es handelt sich um 80 tats&auml;chliche Teilnehmer an einem fr&uuml;heren Experiment. Diese 80 Personen haben eine Reihe von Aufgaben bearbeitet, insbesondere zu <strong><u>Wissen</u></strong>, <strong><u>Wörter</u></strong>, und <strong><u>Logischem Folgern</u></strong>. Jede Person wurde f&uuml;r jede richtige Antwort bezahlt, es hatten also alle einen Anreiz, eine m&ouml;glichst gute Leistung in jeder Aufgabe zu erzielen. Die einzelnen Leistungen der tats&auml;chlichen Teilnehmer in diesen Aufgaben haben Relevanz f&uuml;r Ihre Entscheidungen und Einnahmen. Details zu den Aufgaben entnehmen Sie bitte dem <strong>Ausdruck</strong> <strong>auf Ihrem Tisch</strong>. Sie haben nun ausreichend Zeit, sich mit diesen Aufgaben <strong>vertraut zu machen</strong>, um sp&auml;ter bessere Entscheidungen zu treffen. </span></p>
+    <p><font color="red"><strong><span><h4>Was ist das Ziel beim Anstellen einer Person?</h4></span></strong></font></p>
+<p><span>Ihr Ziel als Arbeitgeber ist es, diejenige Person anzustellen, die im direkten Vergleich mit der anderen die <strong>h&ouml;here Leistung</strong> in der Aufgabe <strong><u>Logisches Folgern</u></strong> erreicht hat (Gleichstände werden per Zufall entschieden). Anders ausgedr&uuml;ckt, <strong><u>Logisches Folgern</u></strong> ist der Job, und Sie sind als Arbeitgeber daran interessiert, die Person auszuw&auml;hlen, welche den Job am besten erledigt hat, denn daran orientieren sich, wie f&uuml;r Arbeitgeber &uuml;blich, Ihre eigenen Einnahmen.</span></p>
+    <p><font color="red"><strong><span><h4>Welche Information &uuml;ber die Personen steht zur Verf&uuml;gung?</h4></span></strong></font></p>
+<p><span>Wenn Sie Ihre Entscheidung treffen, wird Ihnen Information &uuml;ber die beiden zur Auswahl stehenden Personen in Form kurzer Profile zur Verf&uuml;gung stehen. Das Profil beinhaltet insbesondere, ob die Person ein <strong>Zertifikat</strong> in <strong><u>Wissen</u> </strong>oder in <strong><u>Wörter</u></strong> besitzt.</span></p>
+    <p><font color="red"><strong><span><h4>Was ist ein Zertifikat?</h4></span></strong></font></p>
+<p><span>Ein Zertifikat in <strong><u>Wissen</u></strong> belegt, dass die Person mit Sicherheit zu den besten 30 % aller Teilnehmer in <strong><u>Wissen</u></strong> geh&ouml;rt. Da es insgesamt 80 Teilnehmer gab, wissen Sie damit also, dass die Person <strong>eine der besten 24</strong> Leistungen in <strong><u>Wissen</u></strong> erzielt hat (Gleichstände werden per Zufall entschieden).</span></p>
+<p><span>Ein Zertifikat in <strong><u>Wörter</u></strong> belegt, dass die Person mit Sicherheit zu den besten 30 % in <strong><u>Wörter</u></strong> geh&ouml;rt. Da es insgesamt 80 Teilnehmer gab, wissen Sie damit also, dass die Person <strong>eine der besten 24</strong> Leistungen in <strong><u>Wörter</u></strong> erzielt hat (Gleichstände werden per Zufall entschieden).</span></p>
+
+    <p><span>Umgekehrt bedeutet dementsprechend das Fehlen eines Zertifikats, dass Sie für diese Person nicht wissen, ob sie in der entsprechenden Aufgabe zu den besten 30 % gehört oder nicht. In diesem Fall bleibt dies also <b>ungewiss</b>.</span></p>
+
+    <p><span>Folgenderma&szlig;en werden Zertifikate in den Profilen dargestellt. Ein Haken in einem gr&uuml;nen Feld bedeutet, für die Person liegt ein entsprechende Zertifikat vor, die Person geh&ouml;rt in dieser Aufgabe also <b>mit Sicherheit</b> zu den besten 30%:</span></p>
+
+
+
+    <img style="max-width: 50px; height: auto; " src="{%  static "images/boxyes.png" %}"/>
+    <br><br>
+
+    <p><span>Ein Fragezeichen in einem roten Feld bedeutet, f&uuml;r die Person liegt kein entsprechendes Zertifikat vor, es bleibt f&uuml;r Sie also <b>ungewiss</b>, ob die Person in dieser Aufgabe zu den besten 30% geh&ouml;rt:</span></p>
+
+
+    <img style="max-width: 50px; height: auto; " src="{%  static "images/boxno.png" %}"/>
+    <br>
+
+    <p><font color="red"><strong><span><h4>Wie wird Ihre Entlohnung berechnet?</h4></span></strong></font></p>
+<p><span>Sie erhalten <strong>6 &euro; </strong>f&uuml;r Ihre Entscheidung, wenn Sie diejenige Person w&auml;hlen, die eine h&ouml;here Punktzahl in der Aufgabe <strong><u>Logisches Folgern</u></strong> erreicht hat. Ansonsten erhalten Sie <strong>0 &euro;</strong>. </span></p>
+<p><span>Bedenken Sie, dass alle Personen, zwischen denen Sie die Wahl haben werden, <strong>tats&auml;chlich existieren</strong> und an unserem vorherigen Experiment teilgenommen haben. Das bedeutet auch, dass wom&ouml;glich <strong>mehrere reale Personen</strong> auf die pr&auml;sentierte Beschreibung passen, von denen in solch einem Fall <strong>der Computer zuf&auml;llig</strong> eine ausgew&auml;hlt hat.</span></p>
+    <p><span>Sie werden im Experiment au&szlig;erdem <b>zus&auml;tzliche M&ouml;glichkeiten</b> haben, Geld zu verdienen und an entsprechender Stelle &uuml;ber Details informiert werden.</span></p>
+    <br><fieldset>
+    <p><strong><span><h4>Eine kurze Zusammenfassung:</h4></span></strong></p>
+<ul>
+<li><span>Ihre Aufgabe ist es, diejenige Person auszuw&auml;hlen, die eine h&ouml;here Punktzahl in der Aufgabe <strong><u>Logisches Folgern</u></strong> erzielt hat.</span></li>
+<li><span>Sie erhalten Information &uuml;ber jede zur Auswahl stehende Person, insbesondere ob für diese ein Zertifikat in <strong><u>Wissen</u></strong> oder <strong><u>Wörter</u> </strong>vorliegt.</span></li>
+</ul></fieldset><br>
+
+    <p><strong><span><h4>Anmerkungen:</h4></span></strong></p>
+<ul>
+<li><span>Ihre heutigen Entscheidungen beeinflussen nur Ihre eigene Auszahlung. Sie haben keinen Effekt auf die realen Personen, die wir Ihnen pr&auml;sentieren. Diese wurden f&uuml;r Ihre Leistungen im fr&uuml;heren Experiment bereits nach richtigen Antworten bezahlt.</span></li>
+<li><span>Die Personen wussten au&szlig;erdem nicht, dass Sie f&uuml;r das heutige Experiment als Jobkandidaten zur Verf&uuml;gung stehen w&uuml;rden und sind deshalb anonym gehalten. Auch wurden sie nicht dar&uuml;ber informiert, ob sie ein Zertifikat erreicht haben.</span></li>
+</ul><br>
+<p><span>In wenigen Sekunden (siehe oben) erscheint der Button um zu beginnen.</span></p><br>
+
+
+    {%  next_button %}
+{% endblock %}
+
+{% block styles %}
+
+    <style type="text/css">
+
+    FIELDSET {
+    margin: 3px;
+        border: 2px;
+    padding: 2px;
+        border-style: solid;
+        border-color: #000000;
+    border-radius: 4px;
+}
+
+
+    </style>
+
+{% endblock %}

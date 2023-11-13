@@ -1,0 +1,35 @@
+{% extends "otreeutils/ExtendedPage.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+Fragebogen 1
+{% endblock %}
+
+{% block content %}
+
+    Bitte geben Sie ganz allgemein an, wie sehr sind Sie bereit oder nicht bereit,
+    <b>Risiken einzugehen</b>. Bitte verwenden Sie eine Skala von 0 bis 10, auf der 0 bedeutet <i>,überhaupt nicht bereit, Risiken einzugehen‘</i> und 10 bedeutet <i>‚sehr bereit, Risiken einzugehen‘</i>. Sie können auch jede Zahl zwischen 0 und 10 verwenden,
+    um anzugeben, wo sie sich auf der Skala sehen. <br><br>
+
+    {% formfield player.risk with label="Bitte wählen Sie aus"  %}<br><br>
+
+    Was denken Sie, wie gut hätten Sie selbst als Teilnehmer im vorherigen Experiment in der Aufgabe <u><b>Wissen</b></u> abgeschnitten?
+    Geben Sie dazu bitte an, wieviel Prozent der anderen Teilnehmer Sie mit Ihrer Punktzahl vermutlich hinter sich gelassen hätten.<br><br>
+
+    {% formfield player.selfmath with label="Bitte geben sie eine Zahl von 0 bis 100 ein (%)"  %}<br><br>
+
+     Was denken Sie, wie gut hätten Sie selbst als Teilnehmer im vorherigen Experiment in der Aufgabe <u><b>Wörter</b></u> abgeschnitten?
+    Geben Sie dazu bitte an, wieviel Prozent der anderen Teilnehmer Sie mit Ihrer Punktzahl vermutlich hinter sich gelassen hätten.<br><br>
+
+    {% formfield player.selfhidden with label="Bitte geben sie eine Zahl von 0 bis 100 ein (%)"  %}<br><br>
+
+     Was denken Sie, wie gut hätten Sie selbst als Teilnehmer im vorherigen Experiment in der Aufgabe <u><b>Logisches Folgern</b></u> abgeschnitten?
+    Geben Sie dazu bitte an, wieviel Prozent der anderen Teilnehmer Sie mit Ihrer Punktzahl vermutlich hinter sich gelassen hätten.<br><br>
+
+    {% formfield player.selfmatrices with label="Bitte geben sie eine Zahl von 0 bis 100 ein (%)"  %}<br><br>
+
+
+
+    {% next_button %}
+
+{% endblock %}

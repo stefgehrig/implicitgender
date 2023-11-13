@@ -1,0 +1,19 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+        Teilaufgabe 4
+{% endblock %}
+
+{% block content %}
+    <br><br>
+Welche der folgenden Personen nahm am Wiener Kongress teil?
+<br><br>
+        {% formfield  player.KnowS4 with label="Wählen Sie Ihre Antwort" %}
+
+
+  <br>
+
+    {% next_button %}
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "otreeutils/ExtendedPage.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Sie können den Button klicken, wenn Sie fertig sind.
+{% endblock %}
+
+{% block content %}
+
+    {% formfield player.eq1 with label="Ich kann die Emotionen, die ich fühle, Teamkollegen erklären" %}<br>
+    {% formfield player.eq2 with label="Ich kann die Emotionen, die ich fühle, mit anderen Teamkollegen diskutieren." %}<br>
+    {% formfield player.eq3 with label="Wenn ich mich schlecht fühle, kann ich Teamkollegen mitteilen wodurch ich mich besser fühlen wuerde."%}<br>
+    {% formfield player.eq4 with label="Ich kann mit anderen Kollegen aus dem Team über die Emotionen sprechen, die ich erfahre." %}<br>
+    {% formfield player.eq5 with label="Ich respektiere die Meinung anderer Teamkollegen, sogar wenn ich sie für falsch halte." %}<br>
+    {% formfield player.eq6 with label="Wenn ich frustriert über andere Teamkollegen bin, kann ich diese Frustration bewältigen." %}<br>
+    {% formfield player.eq7 with label="Wenn ich über eine Auseinandersetzung entscheide, versuche ich alle Seiten der Uneinigkeit zu sehen bevor ich zu einem Schluss komme." %}<br>
+    {% formfield player.eq8 with label="Ich gebe Ideen von Teamkollegen eine faire Anhörung." %}<br>
+    {% formfield player.eq9 with label="Ich kann die wahren Gefühle von Teamkollegen lesen, sogar wenn sie versuchen sie zu verstecken." %}<br>
+    {% formfield player.eq10 with label="Ich bin fähig treffend zu beschreiben, wie sich andere im Team fühlen." %}<br>
+    {% formfield player.eq11 with label="Wenn ich mit Teamkollegen spreche, kann ich ihre wahren Gefühle aus ihrer Körpersprache ableiten." %}<br>
+    {% formfield player.eq12 with label="Ich kann feststellen wenn Teamkollegen nicht meinen was sie sagen." %}<br>
+    {% formfield player.eq13 with label="Mein Enthusiasmus kann ansteckend für Kollegen im Team sein." %}<br>
+    {% formfield player.eq14 with label="Ich bin fähig Teamkollegen aufzubauen wenn sie sich niedergeschlagen fühlen." %}<br>
+    {% formfield player.eq15 with label="Ich kann es schaffen, dass Teamkollegen meinen Eifer für ein Projekt teilen." %}<br>
+    {% formfield player.eq16 with label="Ich kann den 'Funken' verteilen um Teamkollegen zu begeistern." %}
+
+    <br><br>
+    {% next_button %}
+
+{% endblock %}
+

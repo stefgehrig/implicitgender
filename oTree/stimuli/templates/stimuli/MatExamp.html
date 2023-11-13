@@ -1,0 +1,22 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Matrices: Example
+{% endblock %}
+
+
+{% block content %}
+    <br><br>
+
+<img src="{%  static "images/matex.jpg" %}"/>
+
+<br><br>
+        {% formfield  player.exampleMat with label="Please indicate which is the best answer to complete the figure." %}
+
+
+  <br>
+
+    {% next_button %}
+
+{% endblock %}

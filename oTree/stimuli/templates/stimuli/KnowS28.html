@@ -1,0 +1,20 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+        Teilaufgabe 28
+{% endblock %}
+
+{% block content %}
+    <br><br>
+Welche der folgenden Pflanzen gehört in die Gruppe der Nacktsamer?
+<br><br>
+        {% formfield  player.KnowS28 with label="Wählen Sie Ihre Antwort" %}
+
+
+
+  <br>
+
+    {% next_button %}
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Math: Solution for the example
+{% endblock %}
+
+{% block content %}
+    {% if player.exampleSumming == 227 %} You answer was correct. The solution to the summation of <b>62 89 21 55</b> is <b>227</b>. You would have earned {{ Constants.pointsSumming }} for this question.
+    {%  else %} Your answer was not correct. The solution to the summation of <b>62 89 21 55</b> is <b>227</b>. You would have earned nothing for this question.
+    {%  endif %}
+    <br><br>
+    Click the button to start when you are ready to begin with the task.
+    <br><br>
+    {% next_button %}
+
+{% endblock %}

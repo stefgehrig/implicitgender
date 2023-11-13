@@ -1,0 +1,29 @@
+{% extends "otreeutils/ExtendedPage.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Fragebogen 2
+{% endblock %}
+
+{% block content %}
+
+    {% formfield player.age with label="Wie alt sind Sie?"  %}<br>
+
+    {% formfield player.gen with label="Wie lautet Ihr Geschlecht?"  %}<br>
+
+    {% formfield player.eng with label="Haben Sie in Ihrem Umfeld Deutsch gesprochen, als Sie aufwuchsen?"  %}<br>
+
+    {% formfield player.stud with label="Was studieren Sie?"  %}<br>
+
+    {% formfield player.joy with label="Hat Ihnen das heutige Experiment Spaß gemacht?"  %}<br>
+
+    {% formfield player.com with label="Haben Sie Kommentare zum heutigen Experiment?"  %}<br>
+
+
+<br>
+
+    {% next_button %}
+
+{% endblock %}
+
+

@@ -1,0 +1,27 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+{% load otreechat %}
+{% block title %}
+    Teilaufgabe 1
+{% endblock %}
+
+{% block content %}
+    <br><br>
+Welches Gas kommt am häufigsten in der Erdatmosphäre vor?
+<br><br>
+        {% formfield  player.KnowG1 with label="Wählen Sie die Antwort Ihrer Gruppe" %}
+
+   {% chat nickname=player.nicky %}
+
+<style>
+
+    .otree-chat__nickname {
+        color: #505050;
+        font-weight: bold;
+    }
+</style>
+  <br>
+
+    {% next_button %}
+{% endblock %}
+

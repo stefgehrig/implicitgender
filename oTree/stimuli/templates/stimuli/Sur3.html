@@ -1,0 +1,64 @@
+{% extends "otreeutils/ExtendedPage.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Aufgabe 8: Fragebogen III
+{% endblock %}
+
+{% block content %}
+<p>Hier k&ouml;nnen Sie erneut <strong>zus&auml;tzlich Geld verdienen</strong>. Nun fragen wir nach Ihrer Einsch&auml;tzung, <strong>welche Antworten die anderen Teilnehmer dieser Sitzung im vorherigen Fragebogen gegeben haben</strong> bez&uuml;glich der Wahrscheinlichkeit, dass ein zuf&auml;llig ausgew&auml;hlter m&auml;nnlicher Teilnehmer eine h&ouml;here Punktzahl erreicht hat als eine zuf&auml;llig ausgew&auml;hlte weibliche Teilnehmerin.</p>
+<p>Je n&auml;her Ihre Antwort an der durchschnittlichen Einsch&auml;tzung der anderen liegt, desto mehr Geld verdienen Sie. Es kommt nun also nicht darauf an, wie oft tats&auml;chlich m&auml;nnliche Teilnehmer eine h&ouml;here Punktzahl erreicht haben, sondern darauf, wie die anderen Teilnehmer dieser Sitzung die entsprechende Wahrscheinlichkeit eingesch&auml;tzt haben.</p>
+<p>Hier ein Beispiel: H&auml;tten wir nur drei andere Teilnehmer, und diese h&auml;tten im vorherigen Fragebogen f&uuml;r eine bestimmte Aufgabe mit Wahrscheinlichkeiten 65, 68 und 60 geantwortet, dann w&auml;re ihre durchschnittliche Einsch&auml;tzung f&uuml;r diese Aufgabe (65+68+60)/3=193/3, also gerundet 64.</p>
+<p>Nachdem Sie f&uuml;r jede der Aufgaben 1 bis 7 Ihre Einsch&auml;tzung gegeben haben, wird zuf&auml;llig eine der sieben Antworten ermittelt, f&uuml;r die sie sp&auml;ter bezahlt werden. F&uuml;r eine exakt richtige Antwort erhalten Sie 1,50 Euro. Falls Ihre Antwort von der durchschnittlichen Einsch&auml;tzung der anderen abweicht, dann wird umso mehr von diesem H&ouml;chstbetrag abgezogen je gr&ouml;&szlig;er die Abweichung ist. Die exakte Formel f&uuml;r diese Berechnung in Abh&auml;ngigkeit der durchschnittlichen Einsch&auml;tzung der anderen M und Ihrer Antwort A lautet:</p>
+<p>Sie werden erneut sieben Einsch&auml;tzungen machen &ndash; eine f&uuml;r jede der vorherigen Aufgaben 1 bis 7. Eine Ihrer Antworten wird zuf&auml;llig ausgew&auml;hlt, und diese wird ausgezahlt. Sie werden so bezahlt, dass Sie die h&ouml;chste Auszahlung erwarten k&ouml;nnen wenn Sie angeben was Sie wirklich glauben. Beachten Sie, dass auch was Sie in diesem Fragebogen verdienen in jedem Fall ausbezahlt wird, als Teil Ihrer Gesamtauszahlung.</p>
+<p>Vereinfacht gesagt, bekommen Sie 1,50 Euro, und Ihnen wird Geld abgezogen in Abh&auml;ngigkeit des Abstands zwischen Ihrer Antwort und der durchschnittlichen Einsch&auml;tzung der anderen. <strong>Je n&auml;her Ihre Antwort an der durchschnittlichen Einsch&auml;tzung der anderen liegt, desto mehr werden Sie verdienen.</strong> Die Formel zur Berechnung Ihrer Auszahlung f&uuml;r jede Einsch&auml;tzung, welche Sie angeben, lautet wie folgt:</p>
+    <img src="{%  static "images/formula1.jpg"%}"/><br><br>
+    <p>wobei <i>x</i> hier die durchschnittliche Einsch&auml;tzung der anderen ist.</p>
+<p>Sie k&ouml;nnen gerne den folgenden groben Leitfaden f&uuml;r Ihre Antwort auf diesen Fragebogen nutzen, allerdings ist <strong>jede Zahl zwischen 0 und 100 m&ouml;glich.</strong></p>
+<ul>
+<li>100 &ndash; Die anderen Teilnehmer sind sicher, dass in dieser Aufgabe der m&auml;nnliche Teilnehmer die h&ouml;here Punktzahl erreicht hat</li>
+<li>75 &ndash; Die anderen Teilnehmer halten es f&uuml;r sehr wahrscheinlich, dass in dieser Aufgabe der m&auml;nnliche Teilnehmer die h&ouml;here Punktzahl erreicht hat</li>
+<li>60 &ndash; Die anderen Teilnehmer halten es f&uuml;r eher wahrscheinlich, dass in dieser Aufgabe m&auml;nnliche Teilnehmer eine h&ouml;here Punktzahl erreicht haben</li>
+<li>50 &ndash; Die anderen Teilnehmer halten es f&uuml;r gleich wahrscheinlich, dass in dieser Aufgabe der m&auml;nnliche Teilnehmer oder die weibliche Teilnehmerin die h&ouml;here Punktzahl erreicht hat</li>
+<li>40 &ndash; Die anderen Teilnehmer halten es f&uuml;r eher wahrscheinlich, dass in dieser Aufgabe die weibliche Teilnehmerin die h&ouml;here Punktzahl erreicht hat</li>
+<li>25 &ndash; Die anderen Teilnehmer halten es f&uuml;r sehr wahrscheinlich, dass in dieser Aufgabe die weibliche Teilnehmerin die h&ouml;here Punktzahl erreicht hat</li>
+<li>0 &ndash; Die anderen Teilnehmer sind sicher, dass in dieser Aufgabe die weibliche Teilnehmerin die h&ouml;here Punktzahl erreicht hat</li>
+</ul>
+<p>Was denken Sie nun, wie die anderen Teilnehmer durchschnittlich die Wahrscheinlichkeit eingesch&auml;tzt haben, dass ein zuf&auml;llig ausgew&auml;hlter m&auml;nnlicher Teilnehmer dieser Sitzung eine h&ouml;here Punktzahl erreicht hat als eine zuf&auml;llig ausgew&auml;hlte weibliche Teilnehmerin dieser Sitzung, f&uuml;r jede der folgenden Aufgaben:</p>
+
+<br><br>
+    <fieldset>{% formfield player.belief1 with label="Allgemeine Wissensfragen"%}<p style="display:inline"> <p>Zur Erinnerung hier ein Beispiel der Aufgabe:</p>  <img style="border: #000000 1px outset; max-width: 200px; height: auto; " src="{%  static "images/knowsexample.png" %}"/></fieldset><br><br>
+    <fieldset>{% formfield player.belief2 with label="Mathematik"%} <p style="display:inline"> <p>Zur Erinnerung hier ein Beispiel der Aufgabe:</p>   <img style="border: #000000 1px outset; max-width: 150px; height: auto; " src="{%  static "images/summingexample.png" %}"/></fieldset><br><br>
+    <fieldset>{% formfield player.belief3 with label="Worträtsel"%}<p style="display:inline"> <p>Zur Erinnerung hier ein Beispiel der Aufgabe:</p>  <img style="border: #000000 1px outset; max-width: 220px; height: auto; " src="{%  static "images/wordesol.jpg" %}"/></fieldset><br><br>
+    <fieldset>{% formfield player.belief4 with label="Muster erkennen"%} <p style="display:inline"> <p>Zur Erinnerung hier ein Beispiel der Aufgabe:</p>  <img style="border: #000000 1px outset; max-width: 200px; height: auto; " src="{%  static "images/matexample.png" %}"/></fieldset><br><br>
+    <fieldset>{% formfield player.belief5 with label="Versteckte Formen"%} <p style="display:inline"> <p>Zur Erinnerung hier ein Beispiel der Aufgabe:</p> <img style="border: #000000 1px outset; max-width: 200px; height: auto; " src="{%  static "images/figexample.png" %}"/></fieldset><br><br>
+    <fieldset>{% formfield player.belief6 with label="Emotionen im Team"%}<p style="display:inline"> <p>Zur Erinnerung hier ein Beispiel der Aufgabe:</p>  <img style="border: #000000 1px outset; max-width: 400px; height: auto; " src="{%  static "images/eqexample.png" %}"/></fieldset><br><br>
+    <fieldset>{% formfield player.belief7 with label="Allgemeine Wissensfragen in Gruppen"%}<p style="display:inline"> <p>Zur Erinnerung hier ein Beispiel der Aufgabe:</p>   <img style="border: #000000 1px outset; max-width: 380px; height: auto; " src="{%  static "images/knowgexample.png" %}"/></fieldset>
+
+<br>
+
+
+
+
+
+
+<br>
+
+    {% next_button %}
+{% endblock %}
+
+
+{% block styles %}
+
+    <style type="text/css">
+
+    FIELDSET {
+    margin: 8px;
+    border: 1px solid silver;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+
+    </style>
+{% endblock %}

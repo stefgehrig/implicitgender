@@ -1,0 +1,62 @@
+{% extends "otreeutils/ExtendedPage.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Aufgabe 8: Fragebogen II
+{% endblock %}
+
+{% block content %}
+<p><span>In diesem Fragebogen k&ouml;nnen Sie <strong>zus&auml;tzlich Geld verdienen</strong>. F&uuml;r jede der vorherigen Aufgaben 1 bis 7, betrachten Sie einen <strong>zuf&auml;llig ausgew&auml;hlten</strong> m&auml;nnlichen Teilnehmer und eine <strong>zuf&auml;llig ausgew&auml;hlte</strong> weibliche Teilnehmerin dieser Sitzung. Was denken Sie, ist die <strong>Wahrscheinlichkeit, dass der m&auml;nnliche Teilnehmer eine h&ouml;here Punktzahl in der Aufgabe erreicht hat als die weibliche Teilnehmerin?</strong></span></p>
+<p><span>Punktzahl bezieht sich hier in jeder Aufgabe auf die Anzahl der richtigen Antworten, mit Ausnahme der Aufgabe 3 Wortr&auml;tsel, wo hiervon noch die Anzahl der falschen Antworten abgezogen wird.</span></p>
+<p><span>Eine andere Art, &uuml;ber diese Frage nachzudenken w&auml;re: Stellen Sie sich vor, sie w&uuml;rden 100 Mal zuf&auml;llig einen m&auml;nnlichen Teilnehmer und eine weibliche Teilnehmerin dieser Sitzung ziehen. Wie oft, denken Sie, w&uuml;rde der m&auml;nnliche Teilnehmer die h&ouml;here Punktzahl in der jeweiligen Aufgabe erreichen? </span></p>
+<p><span>Sie werden sieben Wahrscheinlichkeiten sch&auml;tzen &ndash; eine f&uuml;r jede der vorherigen Aufgaben 1 bis 7. Eine Ihrer Antworten wird zuf&auml;llig ausgew&auml;hlt, und diese wird ausgezahlt. Sie werden so bezahlt, dass Sie die h&ouml;chste Auszahlung erwarten k&ouml;nnen wenn Sie angeben was Sie wirklich glauben. Beachten Sie, dass was Sie in diesem Fragebogen verdienen in jedem Fall ausbezahlt wird, als Teil Ihrer Gesamtauszahlung.</span></p>
+<p><span>Vereinfacht gesagt bekommen Sie 1.50 &euro;, und Ihnen wird Geld abgezogen in Abh&auml;ngigkeit des Abstands zwischen Ihrer Antwort und der tats&auml;chlichen Wahrscheinlichkeit. <strong>Je n&auml;her Ihre Antwort an der tats&auml;chlichen Wahrscheinlichkeit liegt, desto mehr werden Sie verdienen</strong>. Die Formel zur Berechnung Ihrer Auszahlung f&uuml;r jede Wahrscheinlichkeit, welche Sie angeben, lautet wie folgt: </span></p><img src="{%  static "images/formula1.jpg"%}"/><br><br>
+
+    <p><span>wobei <i>x</i> die tats&auml;chliche von uns berechnete Wahrscheinlichkeit ist. Diese berechnet sich aus dem Vergleich jedes m&auml;nnlichen Teilnehmers mit jeder weiblichen Teilnehmerin dieser Sitzung bez&uuml;glich der erreichten Punktzahl in der entsprechenden Aufgabe, und sie entspricht dem Prozentanteil der Vergleiche in welchen der m&auml;nnliche Teilnehmer die h&ouml;here Punktzahl erreicht hat. Beachten Sie, dass im Falle eines Punkte-Gleichstands in einer Paarung der Computer zuf&auml;llig entscheidet, ob dies als h&ouml;here oder niedrigere Punktzahl f&uuml;r den m&auml;nnlichen Teilnehmer behandelt wird.</span></p>
+<p><span>Sie k&ouml;nnen gerne den folgenden groben Leitfaden f&uuml;r Ihre Antwort auf diesen Fragebogen nutzen, allerdings ist <strong>jede Zahl zwischen 0 und 100 m&ouml;glich</strong>.</span></p>
+<ul>
+<li><span> 100 &ndash; Ich bin sicher, dass in dieser Aufgabe der m&auml;nnliche Teilnehmer die h&ouml;here Punktzahl erreicht hat</span></li>
+<li><span> 75 &ndash; Ich halte es f&uuml;r sehr wahrscheinlich, dass in dieser Aufgabe der m&auml;nnliche Teilnehmer die h&ouml;here Punktzahl erreicht hat</span></li>
+<li><span> 60 &ndash; Ich halte es f&uuml;r eher wahrscheinlich, dass in dieser Aufgabe der m&auml;nnliche Teilnehmer die h&ouml;here Punktzahl erreicht hat</span></li>
+<li><span> 50 &ndash; Ich halte es f&uuml;r gleich wahrscheinlich, dass in dieser Aufgabe der m&auml;nnliche Teilnehmer oder die weibliche Teilnehmerin die h&ouml;here Punktzahl erreicht hat</span></li>
+<li><span> 40 &ndash; Ich halte es f&uuml;r eher wahrscheinlich, dass in dieser Aufgabe die weibliche Teilnehmerin die h&ouml;here Punktzahl erreicht hat</span></li>
+<li><span> 25 &ndash; Ich halte es f&uuml;r sehr wahrscheinlich, dass in dieser Aufgabe die weibliche Teilnehmerin die h&ouml;here Punktzahl erreicht hat </span></li>
+<li><span> 0 &ndash; Ich bin sicher, dass in dieser Aufgabe die weibliche Teilnehmerin die h&ouml;here Punktzahl erreicht hat</span></li>
+</ul>
+<p><span>Was denken Sie nun, wie hoch die Wahrscheinlichkeit ist, dass ein zuf&auml;llig ausgew&auml;hlter m&auml;nnlicher Teilnehmer dieser Sitzung eine h&ouml;here Punktzahl erreicht hat als eine zuf&auml;llig ausgew&auml;hlte weibliche Teilnehmerin dieser Sitzung, f&uuml;r jede der folgenden Aufgaben: </span></p>
+    <br><br>
+    <fieldset>{% formfield player.estimate1 with label="Allgemeine Wissensfragen"%}<p style="display:inline"> <p>Zur Erinnerung hier ein Beispiel der Aufgabe:</p>  <img style="border: #000000 1px outset; max-width: 200px; height: auto; " src="{%  static "images/knowsexample.png" %}"/></fieldset><br><br>
+    <fieldset>{% formfield player.estimate2 with label="Mathematik"%} <p style="display:inline"> <p>Zur Erinnerung hier ein Beispiel der Aufgabe:</p>   <img style="border: #000000 1px outset; max-width: 150px; height: auto; " src="{%  static "images/summingexample.png" %}"/></fieldset><br><br>
+    <fieldset>{% formfield player.estimate3 with label="Worträtsel"%}<p style="display:inline"> <p>Zur Erinnerung hier ein Beispiel der Aufgabe:</p>  <img style="border: #000000 1px outset; max-width: 220px; height: auto; " src="{%  static "images/wordesol.jpg" %}"/></fieldset><br><br>
+    <fieldset>{% formfield player.estimate4 with label="Muster erkennen"%} <p style="display:inline"> <p>Zur Erinnerung hier ein Beispiel der Aufgabe:</p>  <img style="border: #000000 1px outset; max-width: 200px; height: auto; " src="{%  static "images/matexample.png" %}"/></fieldset><br><br>
+    <fieldset>{% formfield player.estimate5 with label="Versteckte Formen"%} <p style="display:inline"> <p>Zur Erinnerung hier ein Beispiel der Aufgabe:</p> <img style="border: #000000 1px outset; max-width: 200px; height: auto; " src="{%  static "images/figexample.png" %}"/></fieldset><br><br>
+    <fieldset>{% formfield player.estimate6 with label="Emotionen im Team"%}<p style="display:inline"> <p>Zur Erinnerung hier ein Beispiel der Aufgabe:</p>  <img style="border: #000000 1px outset; max-width: 400px; height: auto; " src="{%  static "images/eqexample.png" %}"/></fieldset><br><br>
+    <fieldset>{% formfield player.estimate7 with label="Allgemeine Wissensfragen in Gruppen"%}<p style="display:inline"> <p>Zur Erinnerung hier ein Beispiel der Aufgabe:</p>   <img style="border: #000000 1px outset; max-width: 380px; height: auto; " src="{%  static "images/knowgexample.png" %}"/></fieldset><br>
+
+<br>
+
+
+
+
+
+
+<br>
+
+    {% next_button %}
+
+{% endblock %}
+
+{% block styles %}
+
+    <style type="text/css">
+
+    FIELDSET {
+    margin: 8px;
+    border: 1px solid silver;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+
+    </style>
+{% endblock %}

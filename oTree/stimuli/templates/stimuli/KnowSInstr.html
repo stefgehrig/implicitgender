@@ -1,0 +1,18 @@
+{% extends "otreeutils/ExtendedPage.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Aufgabe 1: Allgemeine Wissensfragen
+{% endblock %}
+
+{% block content %}
+<p><span>In dieser Aufgabe k&ouml;nnen Sie bis zu <strong>30 Fragen (Teilaufgaben)</strong> beantworten, welche eine Reihe von allgemeinen Wissensgebieten abdecken. Sie stammen aus den Kategorien: Bildende Kunst, Literatur, Umweltwissenschaften, Geographie, Geschichte und Popkultur. Die Fragen sind zuf&auml;llig angeordnet. Sie erhalten <strong>{{ Constants.pointsKnowS }}</strong> f&uuml;r jede richtige Antwort, die Sie in den zur Verf&uuml;gung stehenden <strong>4 Minuten </strong>geben.</span></p>
+<p><span>Hier sehen Sie ein Beispiel:</span></p>
+
+    <img style="border: #000000 4px outset" src="{%  static "images/knowsexample.png" %}"/> <br><br>
+<p><strong><span>Hans-Dietrich Genscher</span></strong><span> w&auml;re hier die richtige Antwort.</span></p>
+<p><span style="color: #ff0000;">Klicken Sie den Button wenn Sie bereit sind. Sobald alle anderen ebenso bereit sind, beginnt automatisch die Ihre Bearbeitungszeit, also beachten Sie Ihren Bildschirm.</span></p>
+    {% next_button %}
+
+{% endblock %}
+

@@ -1,0 +1,19 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+        Teilaufgabe 18
+{% endblock %}
+
+{% block content %}
+    <br><br>
+Wie beginnt Albert Camus „Der Fremde“?
+<br><br>
+        {% formfield  player.KnowS18 with label="Wählen Sie Ihre Antwort" %}
+
+
+  <br>
+
+    {% next_button %}
+
+{% endblock %}

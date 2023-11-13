@@ -1,0 +1,365 @@
+{% extends "otreeutils/ExtendedPage.html" %}
+{% load staticfiles otree_tags %}
+
+{% block content %}
+
+
+
+    <head>
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+.column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+</style>
+</head>
+<body>
+
+{% if player.treat == "einsA" and player.diagonal == 1 or player.treat == "zweiA" and player.diagonal == 1 or player.treat == "einsB" and player.diagonal == 0 or player.treat == "zweiB" and player.diagonal == 0%}
+
+<h3><b>Welche Person wählen Sie für Logisches Folgern?</b></h3>
+
+    {% if player.treat == "einsA" %}
+
+<div class="row">
+
+  <div class="column">
+        <fieldset>
+    <h2>Person A</h2>
+      <img style="border: #000000 1px outset; max-width: 200px; height: auto; " src="{%  static "images/guy.png" %}"/><br><br>
+      <font size="4">
+            <p><b><u>Geschlecht:</u></b><br>
+          Männlich</p>
+      <p><b><u>Zertifikate:</u></b><br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxyes.png" %}"/> Wissen<br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxno.png" %}"/> Wörter</p>
+      </font>
+        </fieldset>
+  </div>
+
+
+  <div class="column">
+    <h2>Person B</h2>
+      <img style="border: #000000 1px outset; max-width: 200px; height: auto; " src="{%  static "images/girl.png" %}"/><br><br>
+      <font size="4">
+      <p><b><u>Geschlecht:</u></b><br>
+          Weiblich</p>
+      <p><b><u>Zertifikate:</u></b><br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxno.png" %}"/> Wissen<br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxyes.png" %}"/> Wörter</p>
+      </font>
+  </div>
+
+</div>
+
+{% endif %}
+
+{% if player.treat == "einsB" %}
+
+<div class="row">
+
+  <div class="column">
+        <fieldset>
+    <h2>Person A</h2>
+      <img style="border: #000000 1px outset; max-width: 200px; height: auto; " src="{%  static "images/girl.png" %}"/><br><br>
+      <font size="4">
+            <p><b><u>Geschlecht:</u></b><br>
+          Weiblich</p>
+      <p><b><u>Zertifikate:</u></b><br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxno.png" %}"/> Wissen<br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxyes.png" %}"/> Wörter</p>
+      </font>
+        </fieldset>
+  </div>
+
+
+  <div class="column">
+    <h2>Person B</h2>
+    <img style="border: #000000 1px outset; max-width: 200px; height: auto; " src="{%  static "images/guy.png" %}"/><br><br>
+      <font size="4">
+      <p><b><u>Geschlecht:</u></b><br>
+          Männlich</p>
+      <p><b><u>Zertifikate:</u></b><br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxyes.png" %}"/> Wissen<br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxno.png" %}"/> Wörter</p>
+      </font>
+  </div>
+
+</div>
+
+{% endif %}
+
+{% if player.treat == "zweiA" %}
+
+<div class="row">
+
+  <div class="column">
+        <fieldset>
+    <h2>Person A</h2>
+      <img style="border: #000000 1px outset; max-width: 200px; height: auto; " src="{%  static "images/guy.png" %}"/><br><br>
+            <font size="4">
+            <p><b><u>Geschlecht:</u></b><br>
+          Männlich</p>
+      <p><b><u>Zertifikate:</u></b><br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxno.png" %}"/> Wissen<br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxyes.png" %}"/> Wörter</p>
+            </font>
+        </fieldset>
+  </div>
+
+
+  <div class="column">
+    <h2>Person B</h2>
+      <img style="border: #000000 1px outset; max-width: 200px; height: auto; " src="{%  static "images/girl.png" %}"/><br><br>
+      <font size="4">
+      <p><b><u>Geschlecht:</u></b><br>
+          Weiblich</p>
+      <p><b><u>Zertifikate:</u></b><br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxyes.png" %}"/> Wissen<br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxno.png" %}"/> Wörter</p>
+      </font>
+  </div>
+
+</div>
+
+{% endif %}
+
+{% if player.treat == "zweiB" %}
+
+<div class="row">
+
+  <div class="column">
+        <fieldset>
+    <h2>Person A</h2>
+      <img style="border: #000000 1px outset; max-width: 200px; height: auto; " src="{%  static "images/girl.png" %}"/><br><br>
+      <font size="4">
+            <p><b><u>Geschlecht:</u></b><br>
+          Weiblich</p>
+      <p><b><u>Zertifikate:</u></b><br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxyes.png" %}"/> Wissen<br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxno.png" %}"/> Wörter</p>
+      </font>
+        </fieldset>
+  </div>
+
+
+  <div class="column">
+    <h2>Person B</h2>
+    <img style="border: #000000 1px outset; max-width: 200px; height: auto; " src="{%  static "images/guy.png" %}"/><br><br>
+      <font size="4">
+      <p><b><u>Geschlecht:</u></b><br>
+          Männlich</p>
+      <p><b><u>Zertifikate:</u></b><br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxno.png" %}"/> Wissen<br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxyes.png" %}"/> Wörter</p>
+      </font>
+  </div>
+
+</div>
+
+
+
+{% endif %}
+    <h3>Sie haben <font color=#46C646> Person A</font> gewählt.</h3><br>
+
+{% endif %}
+
+{% if player.treat == "einsB" and player.diagonal == 1 or player.treat == "zweiB" and player.diagonal == 1 or player.treat == "einsA" and player.diagonal == 0 or player.treat == "zweiA" and player.diagonal == 0%}
+
+<h3><b>Welche Person wählen Sie für Logisches Folgern?</b></h3>
+
+{% if player.treat == "einsA" %}
+
+<div class="row">
+
+  <div class="column">
+    <h2>Person A</h2>
+      <img style="border: #000000 1px outset; max-width: 200px; height: auto; " src="{%  static "images/guy.png" %}"/><br><br>
+      <font size="4">
+      <p><b><u>Geschlecht:</u></b><br>
+          Männlich</p>
+      <p><b><u>Zertifikate:</u></b><br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxyes.png" %}"/> Wissen<br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxno.png" %}"/> Wörter</p>
+      </font>
+  </div>
+
+
+  <div class="column">
+        <fieldset>
+    <h2>Person B</h2>
+      <img style="border: #000000 1px outset; max-width: 200px; height: auto; " src="{%  static "images/girl.png" %}"/><br><br>
+           <font size="4">
+            <p><b><u>Geschlecht:</u></b><br>
+          Weiblich</p>
+      <p><b><u>Zertifikate:</u></b><br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxno.png" %}"/> Wissen<br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxyes.png" %}"/> Wörter</p>
+           </font>
+        </fieldset>
+  </div>
+
+</div>
+
+{% endif %}
+
+{% if player.treat == "einsB" %}
+
+<div class="row">
+
+  <div class="column">
+    <h2>Person A</h2>
+      <img style="border: #000000 1px outset; max-width: 200px; height: auto; " src="{%  static "images/girl.png" %}"/><br><br>
+      <font size="4">
+      <p><b><u>Geschlecht:</u></b><br>
+          Weiblich</p>
+      <p><b><u>Zertifikate:</u></b><br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxno.png" %}"/> Wissen<br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxyes.png" %}"/> Wörter</p>
+      </font>
+  </div>
+
+
+  <div class="column">
+        <fieldset>
+    <h2>Person B</h2>
+    <img style="border: #000000 1px outset; max-width: 200px; height: auto; " src="{%  static "images/guy.png" %}"/><br><br>
+      <font size="4">
+            <p><b><u>Geschlecht:</u></b><br>
+          Männlich</p>
+      <p><b><u>Zertifikate:</u></b><br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxyes.png" %}"/> Wissen<br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxno.png" %}"/> Wörter</p>
+      </font>
+        </fieldset>
+  </div>
+
+</div>
+
+{% endif %}
+
+{% if player.treat == "zweiA" %}
+
+<div class="row">
+
+  <div class="column">
+    <h2>Person A</h2>
+      <img style="border: #000000 1px outset; max-width: 200px; height: auto; " src="{%  static "images/guy.png" %}"/><br><br>
+      <font size="4">
+      <p><b><u>Geschlecht:</u></b><br>
+          Männlich</p>
+      <p><b><u>Zertifikate:</u></b><br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxno.png" %}"/> Wissen<br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxyes.png" %}"/> Wörter</p>
+      </font>
+  </div>
+
+
+  <div class="column">
+        <fieldset>
+    <h2>Person B</h2>
+      <img style="border: #000000 1px outset; max-width: 200px; height: auto; " src="{%  static "images/girl.png" %}"/><br><br>
+      <font size="4">
+            <p><b><u>Geschlecht:</u></b><br>
+          Weiblich</p>
+      <p><b><u>Zertifikate:</u></b><br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxyes.png" %}"/> Wissen<br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxno.png" %}"/> Wörter</p>
+      </font>
+        </fieldset>
+  </div>
+
+</div>
+
+{% endif %}
+
+{% if player.treat == "zweiB" %}
+
+<div class="row">
+
+  <div class="column">
+    <h2>Person A</h2>
+      <img style="border: #000000 1px outset; max-width: 200px; height: auto; " src="{%  static "images/girl.png" %}"/><br><br>
+      <font size="4">
+      <p><b><u>Geschlecht:</u></b><br>
+          Weiblich</p>
+      <p><b><u>Zertifikate:</u></b><br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxyes.png" %}"/> Wissen<br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxno.png" %}"/> Wörter</p>
+      </font>
+  </div>
+
+
+  <div class="column">
+        <fieldset>
+    <h2>Person B</h2>
+    <img style="border: #000000 1px outset; max-width: 200px; height: auto; " src="{%  static "images/guy.png" %}"/><br><br>
+      <font size="4">
+            <p><b><u>Geschlecht:</u></b><br>
+          Männlich</p>
+      <p><b><u>Zertifikate:</u></b><br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxno.png" %}"/> Wissen<br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxyes.png" %}"/> Wörter</p>
+      </font>
+        </fieldset>
+  </div>
+
+</div>
+
+
+
+{% endif %}
+
+    <h3>Sie haben <font color=#46C646> Person B</font> gewählt.</h3><br>
+
+{% endif %}
+
+</body>
+
+<h3><b>Würden Sie Ihre Entscheidung dem Zufall überlassen?</b></h3>
+<br>
+<p>W&uuml;rden Sie <strong>f&uuml;r 0,10 &euro;</strong> Ihre soeben getroffene Entscheidung durch eine <strong>zuf&auml;llige Auswahl des Computers</strong> <strong>zwischen den beiden Personen</strong> ersetzen lassen?</p>
+<p>Wenn Sie &bdquo;Nein&ldquo; w&auml;hlen, dann werden Sie Ihre bereits ausgew&auml;hlte Person <strong>behalten</strong>, und, wie bereits erkl&auml;rt, mit <strong>6 &euro;</strong> entlohnt falls diese Person besser war, und mit <strong>0 &euro;</strong> falls nicht.</p>
+<p>Wenn Sie &bdquo;Ja&ldquo; w&auml;hlen, dann erhalten Sie <strong>in jedem Fall 0,10 &euro;</strong>. Allerdings wird Ihre bereits ausgew&auml;hlte Person durch eine <strong>zuf&auml;llige Auswahl</strong> des Computers zwischen den beiden Personen ersetzt. Falls der Computer per Zufall die bessere Person ausw&auml;hlt, werden Sie zus&auml;tzlich zu den bereits erhaltenen <strong>0,10 &euro; </strong>mit <strong>6 &euro;</strong> entlohnt, und mit <strong>0 &euro;</strong> falls nicht.</p>
+<br>
+    {% formfield  player.indif1 with label="Bitte wählen Sie" %}
+      <br>
+
+    {% next_button %}
+
+{% endblock %}
+
+
+
+{% block styles %}
+
+    <style type="text/css">
+
+    FIELDSET {
+    margin: 8px;
+        border: 5px;
+    padding: 8px;
+        border-style: solid;
+        border-color: #46C646;
+    border-radius: 4px;
+}
+
+
+    </style>
+
+{% endblock %}

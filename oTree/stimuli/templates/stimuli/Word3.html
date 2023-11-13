@@ -1,0 +1,80 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block app_styles %}
+<style>
+    ul.answers {
+        margin: 0 3em 0 0;
+        padding: 0;
+        font-size: 0.9em;
+        list-style-type: none;
+    }
+
+    ul.answers li {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul.answers .checkbox {
+        margin: 0;
+        padding: 0;
+        min-height: auto;
+    }
+</style>
+{% endblock %}
+{% block title %}
+    Worträtsel 3
+{% endblock %}
+
+
+{% block content %}
+ <font size="5">Kategorie: Früchte</font>
+
+<div style="float: left; margin: 2em 2em 0 0;">
+    <ul class="answers" style="float: left">
+            <li>{% formfield player.word1 with label="ANANAS"%}</li>
+            <li>{% formfield player.word2 with label="APFEL"%}</li>
+            <li>{% formfield player.word3 with label="APRIKOSE"%}</li>
+            <li>{% formfield player.word4 with label="BANANE"%}</li>
+            <li>{% formfield player.word5 with label="BIRNE"%}</li>
+            <li>{% formfield player.word6 with label="BROMBEERE"%}</li>
+            <li>{% formfield player.word7 with label="CURUBA"%}</li>
+            <li>{% formfield player.word8 with label="ERDBEERE"%}</li>
+            <li>{% formfield player.word9 with label="FEIGE"%}</li>
+            <li>{% formfield player.word10 with label="GRAPEFRUIT"%}</li>
+            <li>{% formfield player.word11 with label="HAGEBUTTE"%}</li>
+            <li>{% formfield player.word12 with label="HIMBEERE"%}</li>
+            <li>{% formfield player.word13 with label="JOHANNISBEERE"%}</li>
+            <li>{% formfield player.word14 with label="KIRSCHE"%}</li>
+            <li>{% formfield player.word15 with label="KIWI"%}</li>
+    </ul>
+
+    <ul class="answers" style="float: left";>
+        <li>{% formfield player.word16 with label="LITSCHI"%}</li>
+        <li>{% formfield player.word17 with label="MANGO"%}</li>
+        <li>{% formfield player.word18 with label="MELONE"%}</li>
+        <li>{% formfield player.word19 with label="MIRABELLE"%}</li>
+        <li>{% formfield player.word20 with label="NEKTARINE"%}</li>
+        <li>{% formfield player.word21 with label="ORANGE"%}</li>
+        <li>{% formfield player.word22 with label="PAPAYA"%}</li>
+        <li>{% formfield player.word23 with label="PFIRSICH"%}</li>
+        <li>{% formfield player.word24 with label="PFLAUME"%}</li>
+        <li>{% formfield player.word25 with label="POMELO"%}</li>
+        <li>{% formfield player.word26 with label="RHABARBER"%}</li>
+        <li>{% formfield player.word27 with label="SANDDORN"%}</li>
+        <li>{% formfield player.word28 with label="STACHELBEERE"%}</li>
+        <li>{% formfield player.word29 with label="WEINTRAUBE"%}</li>
+        <li>{% formfield player.word30 with label="ZITRONE"%}</li>
+
+    </ul>
+</div>
+
+<img src="{%  static "images/word3.jpg" %}"/>
+
+<div style="clear: left"></div>
+
+    <br><br>
+
+
+{% endblock %}
+

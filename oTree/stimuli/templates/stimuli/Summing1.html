@@ -1,0 +1,16 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+        Teilaufgabe 1
+{% endblock %}
+
+
+{% block content %}
+    <br><br>
+          <td>{% formfield player.Summing1 with label="50 + 24 + 38 + 55" %}</td>
+  <br><br>
+
+    {% next_button %}
+
+{% endblock %}

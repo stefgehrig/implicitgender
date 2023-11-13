@@ -1,0 +1,20 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+        Teilaufgabe 13
+{% endblock %}
+
+{% block content %}
+    <br><br>
+Was geschah im Juli 1776?
+<br><br>
+        {% formfield  player.KnowS13 with label="Wählen Sie Ihre Antwort" %}
+
+
+
+  <br>
+
+    {% next_button %}
+
+{% endblock %}

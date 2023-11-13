@@ -1,0 +1,21 @@
+{% extends "otreeutils/ExtendedPage.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Aufgabe 3: Worträtsel
+{% endblock %}
+
+{% block content %}
+<p><span>In dieser Aufgabe werden Ihnen <strong>drei Wortr&auml;tsel</strong> pr&auml;sentiert. In jedem dieser Wortr&auml;tsel erhalten sie ein Raster aus Buchstaben. Ihre Aufgabe ist es, bestimmte deutsche W&ouml;rter in dem Buchstabenraster zu finden. Einige der Buchstaben sind zuf&auml;llig angeordnet, andere jedoch formen W&ouml;rter. W&ouml;rter k&ouml;nnen sich <strong>horizontal, vertikal oder diagonal</strong> durch Kombination von Buchstaben ergeben. Es geht jeweils darum, so viele W&ouml;rter wie m&ouml;glich aus einer angegebenen Kategorie zu finden. F&uuml;r jedes der drei Wortr&auml;tsel erhalten Sie eine Liste von W&ouml;rtern. Manche davon kommen tats&auml;chlich in dem R&auml;tsel vor, die Mehrheit allerdings nicht.</span></p>
+<p><span>F&uuml;r <strong>jedes der drei Wortr&auml;tsel</strong> stehen Ihnen <strong>90 Sekunden</strong> zur Verf&uuml;gung. F&uuml;r jedes Wort, das Sie finden und richtigerweise aus den alphabetisch geordneten Antwortm&ouml;glichkeiten ausw&auml;hlen erhalten Sie <strong>{{ Constants.pointsWord }}</strong>. Beachten Sie, dass Ihnen f&uuml;r jedes ausgew&auml;hlte Wort, das nicht im Raster vorkommt, auch <strong>{{ Constants.pointsWord }}</strong> abgezogen werden.</span></p>
+<p><span>Hier sehen Sie ein Beispiel:</span></p>
+<p>&nbsp;</p>
+    <img style="border: #000000 4px outset" src="{%  static "images/wordexample.png" %}"/>
+
+    <br><br>
+   <p><span>Die W&ouml;rter <strong>BIOLOGIE, CHEMIE, ETHNOLOGIE, GESCHICHTE, JURA, MATHEMATIK, MEDIZIN, MUSIK, PSYCHOLOGIE, SOZIOLOGIE</strong> w&auml;ren hier die richtigen Antworten. Sie sind in dem Buchstabenraster bereits markiert. Dementsprechend m&uuml;sste jemand um den h&ouml;chstm&ouml;glichen Ertrag zu erzielen hier alle diese richtigen W&ouml;rter aus der Liste ausw&auml;hlen und keines der anderen.</span></p>
+<p><span style="color: #ff0000;">Klicken Sie den Button wenn Sie bereit sind. Sobald alle anderen ebenso bereit sind, beginnt automatisch die Bearbeitungszeit, also beachten Sie Ihren Bildschirm.</span></p>
+    {% next_button %}
+
+{% endblock %}
+

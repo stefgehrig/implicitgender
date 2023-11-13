@@ -1,0 +1,27 @@
+{% extends "otreeutils/ExtendedPage.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Aufgabe 8: Fragebogen IV
+{% endblock %}
+
+{% block content %}
+
+    <p>Hier geht es erneut um Ihre Einsch&auml;tzung. Diese Aufgabe wird nicht zu Ihrer Bezahlung beitragen.
+        Wir bitten Sie in den folgenden Fragen um Ihre Einsch&auml;tzung zu den Aufgaben <strong>Allgemeine Wissensfragen (Aufgabe 1)
+            und Allgemeine Wissensfragen in Gruppen (Aufgabe 7)</strong>. Zur Erinnerung, diese Aufgaben haben Sie zuvor alleine und mit einem zuf&auml;llig ausgew&auml;hlten Teilnehmer aus diesem Raum bearbeitet.</p>
+
+    <p><u>Frage 1:</u> Was denken Sie, <strong>wie hoch ist die Anzahl an richtigen Antworten</strong>, die <strong>Ihre Gruppe</strong> in der Aufgabe Allgemeine Wissensfragen in Gruppen (Aufgabe 7) gegeben hat (Maximum: 30)?
+   </p>
+
+{% formfield  player.groupbelief1 with label="Ihre Einsch&auml;tzung" %}<br>
+
+    <p><u>Frage 2:</u> Was denken Sie, <strong>welchen Anteil an richtigen Antworten</strong>, die Ihre Gruppe in der Aufgabe Allgemeine Wissensfragen in Gruppen (Aufgabe 7) gegeben hat, haben <strong>Sie</strong> beigesteuert? Hier fragen wir Sie nach Ihrer Einsch&auml;tzung in Prozent, und jede Zahl zwischen 0 und 100 ist m&ouml;glich.</p>
+
+
+    {% formfield  player.groupbelief2 with label="Ihre Einsch&auml;tzung" %}<br><br>
+
+
+    {% next_button %}
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "otreeutils/ExtendedPage.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Aufgabe 5: Versteckte Formen
+{% endblock %}
+
+{% block content %}
+<p><span>In dieser Aufgabe erhalten sie bis zu <strong>10 Teilaufgaben</strong>, in denen es darum geht, <strong>versteckte Formen zu finden. </strong>In jeder dieser Teilaufgaben werden Sie eine bestimmte Form im oberen Teil Ihres Bildschirms sehen. Darunter werden verschiedene Abbildungen gegeben sein, in denen Linien kreuz und quer verlaufen. Ihre Aufgabe ist es, zu entscheiden, welche Abbildung aus Linien die oben pr&auml;sentierte Form enth&auml;lt. </span></p>
+<p><span>Sie erhalten <strong>{{ Constants.pointsFig }}</strong> f&uuml;r jede richtige Antwort, die Sie in den zur Verf&uuml;gung stehenden <strong>100 Sekunden</strong> geben.</span></p>
+<p><span>Hier sehen Sie ein Beispiel:</span></p>
+
+    <img style="border: #000000 4px outset" src="{%  static "images/figexample.png" %}"/>
+
+<br><br><p><strong><span>A</span></strong><span> w&auml;re hier die richtige Antwort, wie Sie unten sehen k&ouml;nnen.</span></p>
+
+    <img style="border: #000000 4px outset" src="{%  static "images/figexample2.png" %}"/>
+
+    <br><br>
+<p><span style="color: #ff0000;">Klicken Sie den Button wenn Sie bereit sind. Sobald alle anderen ebenso bereit sind, beginnt automatisch die Bearbeitungszeit, also beachten Sie Ihren Bildschirm.</span></p>
+
+
+    {% next_button %}
+
+{% endblock %}

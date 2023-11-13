@@ -1,0 +1,20 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+        Teilaufgabe 20
+{% endblock %}
+
+{% block content %}
+    <br><br>
+Wie tief unter dem Meeresspiegel liegt die tiefste Stelle der Weltmeere?
+<br><br>
+        {% formfield  player.KnowS20 with label="Wählen Sie Ihre Antwort" %}
+
+
+
+  <br>
+
+    {% next_button %}
+
+{% endblock %}

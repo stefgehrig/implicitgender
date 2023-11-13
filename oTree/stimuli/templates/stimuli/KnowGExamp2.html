@@ -1,0 +1,25 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+{% load otreechat %}
+
+{% block title %}
+    General knowledge in groups: Solution for the example
+{% endblock %}
+
+{% block content %}
+
+{% if player.group.KnowGe_corr == 1 %}
+    You all agreed on one answer and the answer was correct. This means you would each have earned {{ Constants.pointsKnowG }}for this question. {%  endif %}
+
+    {% if player.group.KnowGe_corr == 2 %}
+        You all agreed on one answer, but the answer was not correct. The correct answer would have been <b>Türkei</b>. This means you would have earned nothing for this question.{%  endif %}
+
+    {% if player.group.KnowGe_corr == 3 %}
+    You did not agree on one answer. This means you would have earned nothing for this question.{%  endif %}
+
+    <br><br>Click the button to start when you are ready to begin with the task.
+
+<br><br>
+    {% next_button %}
+
+{% endblock %}

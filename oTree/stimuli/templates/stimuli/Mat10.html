@@ -1,0 +1,22 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+        Teilaufgabe 10
+{% endblock %}
+
+
+{% block content %}
+    <br><br>
+
+<img src="{%  static "images/mat10.jpg" %}"/>
+
+<br><br>
+        {% formfield  player.Mat10 with label="Wählen Sie Ihre Antwort" %}
+
+
+  <br>
+
+    {% next_button %}
+
+{% endblock %}

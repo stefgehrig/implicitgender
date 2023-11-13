@@ -1,0 +1,19 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+        Teilaufgabe 22
+{% endblock %}
+
+{% block content %}
+    <br><br>
+Welches gehört zu den bekanntesten Werken von Georg Büchner?
+<br><br>
+        {% formfield  player.KnowS22 with label="Wählen Sie Ihre Antwort" %}
+
+
+  <br>
+
+    {% next_button %}
+
+{% endblock %}

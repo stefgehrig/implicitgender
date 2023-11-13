@@ -1,0 +1,20 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+        Teilaufgabe 29
+{% endblock %}
+
+{% block content %}
+    <br><br>
+Wie heißt einer der berühmtesten Maler des Expressionismus?
+<br><br>
+        {% formfield  player.KnowS29 with label="Wählen Sie Ihre Antwort" %}
+
+
+
+  <br>
+
+    {% next_button %}
+
+{% endblock %}

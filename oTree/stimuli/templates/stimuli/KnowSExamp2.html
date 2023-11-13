@@ -1,0 +1,21 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+{% load otreechat %}
+
+{% block title %}
+    General knowledge: Solution for the example
+{% endblock %}
+
+{% block content %}
+
+{% if player.KnowSe_corr == 1 %}
+    Your answer was correct. This means you would have earned {{ Constants.pointsKnowS }} for the question. {%  endif %}
+    {% if player.KnowSe_corr == 0 %}
+        Your answer was not correct. The correct answer was <b>Hans-Dietrich Genscher</b>. This means you would have earned nothing for this question.{%  endif %}
+
+    <br>Click the button to start when you are ready to begin with the task.
+
+<br><br>
+    {% next_button %}
+
+{% endblock %}

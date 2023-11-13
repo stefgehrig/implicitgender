@@ -1,0 +1,41 @@
+{% extends "otreeutils/ExtendedPage.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Aufgabe 8: Fragebogen V
+{% endblock %}
+
+{% block content %}
+
+    <p>Hier geht es weiterhin um Ihre Einsch&auml;tzung und diese Aufgabe wird weiterhin nicht zu Ihrer Bezahlung beitragen.</p>
+    <p><u>Frage 5:</u> Was denken Sie, <strong>wie hoch ist die Wahrscheinlichkeit</strong>, dass jemand der in <strong>einer</strong> der sieben Aufgaben zur <strong>besten H&auml;lfte</strong> (also zu den besten 50 %) aller Teilnehmer geh&ouml;rt, auch in <strong>einer anderen</strong> der sieben Aufgaben zur <b>besten</b> H&auml;lfte (also zu den besten 50 %) aller Teilnehmer geh&ouml;rt?</p>
+    <p>Zur Erinnerung, hier Beispiele der Aufgaben:</p>
+    <figure><img style="border: #000000 1px outset; max-width: 200px; height: auto; " src="{%  static "images/knowsexample.png" %}"/> <figcaption><b>Allgemeine Wissensfragen</b></figcaption></figure><br>
+    <figure><img style="border: #000000 1px outset; max-width: 150px; height: auto; " src="{%  static "images/summingexample.png" %}"/><figcaption><b>Mathematik</b></figcaption></figure><br>
+     <figure><img style="border: #000000 1px outset; max-width: 220px; height: auto; " src="{%  static "images/wordesol.jpg" %}"/><figcaption><b>Worträtsel</b></figcaption></figure><br>
+    <figure><img style="border: #000000 1px outset; max-width: 200px; height: auto; " src="{%  static "images/matexample.png" %}"/><figcaption><b>Muster erkennen</b></figcaption></figure><br>
+    <figure><img style="border: #000000 1px outset; max-width: 200px; height: auto; " src="{%  static "images/figexample.png" %}"/><figcaption><b>Versteckte Formen</b></figcaption></figure><br>
+    <br>
+    <p><u>Geben Sie bitte f&uuml;r jede der unten aufgef&uuml;hrten Kombination von Aufgaben eine Wahrscheinlichkeit <strong>von 0 bis 100 </strong>an.</u></p>
+    <br>
+    <p>Mit welcher Wahrscheinlichkeit geh&ouml;rt ein Teilnehmer, der zur besten H&auml;lfte in <strong>Muster erkennen</strong> geh&ouml;rt, auch zur besten H&auml;lfte in <strong>Mathematik</strong>?</p>
+    {% formfield  player.cor1 with label="Ihre Einsch&auml;tzung" %}<br>
+    <p>Mit welcher Wahrscheinlichkeit geh&ouml;rt ein Teilnehmer, der zur besten H&auml;lfte in <strong>Versteckte Formen</strong> geh&ouml;rt, auch zur besten H&auml;lfte in <strong>Mathematik</strong>?</p>
+    {% formfield  player.cor2 with label="Ihre Einsch&auml;tzung" %}<br>
+    <p>Mit welcher Wahrscheinlichkeit geh&ouml;rt ein Teilnehmer, der zur besten H&auml;lfte in <strong>Allgemeine Wissensfragen</strong> geh&ouml;rt, auch zur besten H&auml;lfte <strong>Mathematik</strong>?</p>
+    {% formfield  player.cor3 with label="Ihre Einsch&auml;tzung" %}<br>
+    <p>Mit welcher Wahrscheinlichkeit geh&ouml;rt ein Teilnehmer, der zur besten H&auml;lfte in <strong>Wortr&auml;tsel</strong> geh&ouml;rt, auch zur besten H&auml;lfte in <strong>Mathematik</strong>?</p>
+    {% formfield  player.cor4 with label="Ihre Einsch&auml;tzung" %}<br>
+    <p>Mit welcher Wahrscheinlichkeit geh&ouml;rt ein Teilnehmer, der zur besten H&auml;lfte in <strong>Mathematik</strong> geh&ouml;rt, auch zur besten H&auml;lfte in <strong>Muster erkennen</strong>?</p>
+    {% formfield  player.cor5 with label="Ihre Einsch&auml;tzung" %}<br>
+    <p>Mit welcher Wahrscheinlichkeit geh&ouml;rt ein Teilnehmer, der zur besten H&auml;lfte in <strong>Versteckte Formen</strong> geh&ouml;rt, auch zur besten H&auml;lfte in <strong>Muster erkennen</strong>?</p>
+    {% formfield  player.cor6 with label="Ihre Einsch&auml;tzung" %}<br>
+    <p>Mit welcher Wahrscheinlichkeit geh&ouml;rt ein Teilnehmer, der zur besten H&auml;lfte in <strong>Allgemeine Wissensfragen</strong> geh&ouml;rt, auch zur besten H&auml;lfte in <strong>Muster erkennen</strong>?</p>
+    {% formfield  player.cor7 with label="Ihre Einsch&auml;tzung" %}<br>
+    <p>Mit welcher Wahrscheinlichkeit geh&ouml;rt ein Teilnehmer, der zur besten H&auml;lfte in <strong>Wortr&auml;tsel</strong> geh&ouml;rt, auch zur besten H&auml;lfte in <strong>Muster erkennen</strong>?</p>
+    {% formfield  player.cor8 with label="Ihre Einsch&auml;tzung" %}<br><br>
+
+
+    {% next_button %}
+
+{% endblock %}

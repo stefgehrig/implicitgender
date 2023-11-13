@@ -1,0 +1,20 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+        Teilaufgabe 26
+{% endblock %}
+
+{% block content %}
+    <br><br>
+Welcher dieser Hollywood-Stars hat deutsche Wuzeln?
+<br><br>
+        {% formfield  player.KnowS26 with label="Wählen Sie Ihre Antwort" %}
+
+
+
+  <br>
+
+    {% next_button %}
+
+{% endblock %}

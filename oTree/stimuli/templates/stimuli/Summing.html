@@ -1,0 +1,60 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Math
+{% endblock %}
+
+{% block content %}<b>
+
+
+
+<br><br>
+<table class="table">
+    <tr>
+        <td>{% formfield player.Summing1 with label="62 + 89 + 21 + 55" %}</td>
+        <td>{% formfield player.Summing2 with label="74 87 77 88" %}</td>
+        <td>{% formfield player.Summing3 with label="74 98 13 23" %}</td>
+        <td>{% formfield player.Summing4 with label="75 10 44 51" %}</td>
+        <td>{% formfield player.Summing5 with label="44 45 25 94" %}</td>
+    </tr>
+    <tr>
+        <td>{% formfield player.Summing6 with label="50 39 95 72" %}</td>
+        <td>{% formfield player.Summing7 with label="67 44 72 58" %}</td>
+        <td>{% formfield player.Summing8 with label="30 53 80 10" %}</td>
+        <td>{% formfield player.Summing9 with label="26 70 42 42" %}</td>
+        <td>{% formfield player.Summing10 with label="87 90 64 21" %}</td>
+    </tr>
+    <tr>
+        <td>{% formfield player.Summing11 with label="79 48 92 78" %}</td>
+        <td>{% formfield player.Summing12 with label="33 38 15 13" %}</td>
+        <td>{% formfield player.Summing13 with label="14 65 95 83" %}</td>
+        <td>{% formfield player.Summing14 with label="38 28 75 54" %}</td>
+        <td>{% formfield player.Summing15 with label="74 17 48 31" %}</td>
+    </tr>
+    <tr>
+        <td>{% formfield player.Summing16 with label="80 33 97 77" %}</td>
+        <td>{% formfield player.Summing17 with label="97 29 94 23" %}</td>
+        <td>{% formfield player.Summing18 with label="63 94 71 54" %}</td>
+        <td>{% formfield player.Summing19 with label="43 39 14 65" %}</td>
+        <td>{% formfield player.Summing20 with label="95 68 55 23" %}</td>
+    </tr>
+    <tr>
+        <td>{% formfield player.Summing21 with label="87 55 10 11" %}</td>
+        <td>{% formfield player.Summing22 with label="22 37 83 54" %}</td>
+        <td>{% formfield player.Summing23 with label="81 15 92 81" %}</td>
+        <td>{% formfield player.Summing24 with label="17 63 73 55" %}</td>
+        <td>{% formfield player.Summing25 with label="74 76 18 45" %}</td>
+    </tr>
+    <tr>
+        <td>{% formfield player.Summing26 with label="36 64 96 65" %}</td>
+        <td>{% formfield player.Summing27 with label="56 90 66 86" %}</td>
+        <td>{% formfield player.Summing28 with label="32 29 64 44" %}</td>
+        <td>{% formfield player.Summing29 with label="77 43 80 90" %}</td>
+        <td>{% formfield player.Summing30 with label="97 62 10 38" %}</td>
+    </tr>
+
+</table>
+
+
+{% endblock %}

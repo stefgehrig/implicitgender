@@ -1,0 +1,20 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+        Teilaufgabe 10
+{% endblock %}
+
+{% block content %}
+    <br><br>
+Wo befanden sich die Hängenden Gärten der Semiramis, eines der sieben Weltwunder der Antike?
+<br><br>
+        {% formfield  player.KnowS10 with label="Wählen Sie Ihre Antwort" %}
+
+
+
+  <br>
+
+    {% next_button %}
+
+{% endblock %}

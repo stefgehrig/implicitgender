@@ -1,0 +1,19 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+        Teilaufgabe 16
+{% endblock %}
+
+{% block content %}
+    <br><br>
+Welches ist ein Merkmal der Stilepoche des Rokoko?
+<br><br>
+        {% formfield  player.KnowS16 with label="Wählen Sie Ihre Antwort" %}
+
+
+  <br>
+
+    {% next_button %}
+
+{% endblock %}

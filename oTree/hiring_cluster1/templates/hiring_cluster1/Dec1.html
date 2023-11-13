@@ -1,0 +1,201 @@
+{% extends "otreeutils/ExtendedPage.html" %}
+{% load staticfiles otree_tags %}
+
+
+{% block content %}
+
+
+    <head>
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+.column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+</style>
+</head>
+
+
+<body>
+
+<h3><b>Welche Person wählen Sie für Logisches Folgern?</b></h3>
+
+Sie erhalten <b>6 €</b>, wenn Sie diejenige Person auswählen,
+die eine höhere Punktzahl in der Aufgabe <b><u>Logisches Folgern</u></b> erreicht hat. Ansonsten erhalten Sie <b>0 €.</b><br><br>
+
+{% if player.treat == "einsA" %}
+
+<div class="row">
+
+  <div class="column">
+    <h2>Person A</h2>
+      <img style="border: #000000 1px outset; max-width: 200px; height: auto; " src="{%  static "images/guy.png" %}"/><br><br>
+      <font size="4">
+      <p><b><u>Geschlecht:</u></b><br>
+          Männlich</p>
+      <p><b><u>Zertifikate:</u></b><br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxyes.png" %}"/> Wissen<br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxno.png" %}"/> Wörter</p>
+      </font><br>
+      <div>
+          <button name="diagonal" value="True" class="btn btn-primary btn-large">Person A</button>
+      </div>
+  </div>
+
+
+  <div class="column">
+    <h2>Person B</h2>
+      <img style="border: #000000 1px outset; max-width: 200px; height: auto; " src="{%  static "images/girl.png" %}"/><br><br>
+      <font size="4">
+      <p><b><u>Geschlecht:</u></b><br>
+          Weiblich</p>
+      <p><b><u>Zertifikate:</u></b><br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxno.png" %}"/> Wissen<br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxyes.png" %}"/> Wörter</p>
+      </font><br>
+      <div>
+          <button name="diagonal" value="False" class="btn btn-primary btn-large">Person B</button>
+      </div>
+  </div>
+
+</div>
+
+{% endif %}
+
+{% if player.treat == "einsB" %}
+
+<div class="row">
+
+  <div class="column">
+    <h2>Person A</h2>
+      <img style="border: #000000 1px outset; max-width: 200px; height: auto; " src="{%  static "images/girl.png" %}"/><br><br>
+      <font size="4">
+      <p><b><u>Geschlecht:</u></b><br>
+          Weiblich</p>
+      <p><b><u>Zertifikate:</u></b><br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxno.png" %}"/> Wissen<br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxyes.png" %}"/> Wörter</p>
+       <font><br>
+      <div>
+          <button name="diagonal" value="False" class="btn btn-primary btn-large">Person A</button>
+      </div>
+  </div>
+
+
+  <div class="column">
+    <h2>Person B</h2>
+    <img style="border: #000000 1px outset; max-width: 200px; height: auto; " src="{%  static "images/guy.png" %}"/><br><br>
+      <font size="4">
+      <p><b><u>Geschlecht:</u></b><br>
+          Männlich</p>
+      <p><b><u>Zertifikate:</u></b><br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxyes.png" %}"/> Wissen<br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxno.png" %}"/> Wörter</p>
+      </font><br>
+      <div>
+          <button name="diagonal" value="True" class="btn btn-primary btn-large">Person B</button>
+      </div>
+  </div>
+
+</div>
+
+{% endif %}
+
+{% if player.treat == "zweiA" %}
+
+<div class="row">
+
+  <div class="column">
+    <h2>Person A</h2>
+      <img style="border: #000000 1px outset; max-width: 200px; height: auto; " src="{%  static "images/guy.png" %}"/><br><br>
+      <font size="4">
+      <p><b><u>Geschlecht:</u></b><br>
+          Männlich</p>
+      <p><b><u>Zertifikate:</u></b><br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxno.png" %}"/> Wissen<br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxyes.png" %}"/> Wörter</p>
+      </font><br>
+
+      <div>
+          <button name="diagonal" value="True" class="btn btn-primary btn-large">Person A</button>
+      </div>
+  </div>
+
+
+  <div class="column">
+    <h2>Person B</h2>
+      <img style="border: #000000 1px outset; max-width: 200px; height: auto; " src="{%  static "images/girl.png" %}"/><br><br>
+      <font size="4">
+      <p><b><u>Geschlecht:</u></b><br>
+          Weiblich</p>
+      <p><b><u>Zertifikate:</u></b><br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxyes.png" %}"/> Wissen<br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxno.png" %}"/> Wörter</p>
+      </font><br>
+      <div>
+          <button name="diagonal" value="False" class="btn btn-primary btn-large">Person B</button>
+      </div>
+  </div>
+
+</div>
+
+{% endif %}
+
+{% if player.treat == "zweiB" %}
+
+<div class="row">
+
+  <div class="column">
+    <h2>Person A</h2>
+      <img style="border: #000000 1px outset; max-width: 200px; height: auto; " src="{%  static "images/girl.png" %}"/><br><br>
+      <font size="4">
+      <p><b><u>Geschlecht:</u></b><br>
+          Weiblich</p>
+      <p><b><u>Zertifikate:</u></b><br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxyes.png" %}"/> Wissen<br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxno.png" %}"/> Wörter</p>
+      </font><br>
+      <div>
+          <button name="diagonal" value="False" class="btn btn-primary btn-large">Person A</button>
+      </div>
+  </div>
+
+
+  <div class="column">
+    <h2>Person B</h2>
+    <img style="border: #000000 1px outset; max-width: 200px; height: auto; " src="{%  static "images/guy.png" %}"/><br><br>
+      <font size="4">
+      <p><b><u>Geschlecht:</u></b><br>
+          Männlich</p>
+      <p><b><u>Zertifikate:</u></b><br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxno.png" %}"/> Wissen<br>
+          <img style="max-width: 30px; height: auto; " src="{%  static "images/boxyes.png" %}"/> Wörter</p>
+      </font><br>
+      <div>
+          <button name="diagonal" value="True" class="btn btn-primary btn-large">Person B</button>
+      </div>
+  </div>
+
+</div>
+
+{% endif %}
+
+</body>
+
+
+{% endblock %}
+

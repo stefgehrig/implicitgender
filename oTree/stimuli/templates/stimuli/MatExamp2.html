@@ -1,0 +1,29 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+   Matrices: Solution for the example
+{% endblock %}
+
+
+{% block content %}
+    <br><br>
+
+<img src="{%  static "images/matex.jpg" %}"/>
+
+<br><br>
+{% if player.exampleMat == Constants.MatER %}
+    Your answer was correct. You would have earned {{ Constants.pointsMat }} for this question. {%  endif %}
+
+    {% if player.exampleMat != Constants.MatER %}
+    Your answer was not correct. <b>C</b> was the missing cell. You would have earned nothing for this question.{%  endif %}
+
+
+    <br>Click the button to start when you are ready to begin with the task.
+
+
+  <br><br>
+
+    {% next_button %}
+
+{% endblock %}

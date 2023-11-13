@@ -1,0 +1,24 @@
+{% extends "otreeutils/ExtendedPage.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Aufgabe 8: Fragebogen V
+{% endblock %}
+
+{% block content %}
+
+    <p>Hier geht es weiterhin um Ihre Einsch&auml;tzung und diese Aufgabe wird weiterhin nicht zu Ihrer Bezahlung beitragen.</p>
+<p><u>Frage 3:</u> Was denken Sie, <strong>wie hoch ist die Anzahl an richtigen Antworten</strong>, die <strong>Sie</strong> in der Aufgabe Allgemeine Wissensfragen (Aufgabe 1) gegeben haben (Maximum: 30)?
+   </p>
+
+{% formfield  player.groupbelief3 with label="Ihre Einsch&auml;tzung" %}<br>
+
+    <p><u>Frage 4:</u> Was denken Sie, <strong>wie hoch ist die Anzahl an richtigen Antworten</strong>, die <strong>der Teilnehmer, mit dem sie zufällig in der Aufgabe Allgemeine Wissensfragen in Gruppen (Aufgabe 7) verbunden wurden</strong>, in der Aufgabe Allgemeine Wissensfragen (Aufgabe 1) gegeben hat (Maximum: 30)?
+   </p>
+
+    {% formfield  player.groupbelief4 with label="Ihre Einsch&auml;tzung" %}<br><br>
+
+
+    {% next_button %}
+
+{% endblock %}

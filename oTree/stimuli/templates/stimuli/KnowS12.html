@@ -1,0 +1,20 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+        Teilaufgabe 12
+{% endblock %}
+
+{% block content %}
+    <br><br>
+Welches dieser Ereignisse geschah nicht an einem 9. November?
+<br><br>
+        {% formfield  player.KnowS12 with label="Wählen Sie Ihre Antwort" %}
+
+
+
+  <br>
+
+    {% next_button %}
+
+{% endblock %}

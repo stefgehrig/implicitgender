@@ -1,0 +1,22 @@
+{% extends "otreeutils/ExtendedPage.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Aufgabe 7: Allgemeine Wissensfragen in Gruppen
+{% endblock %}
+
+{% block content %}
+<p><span>In dieser Aufgabe k&ouml;nnen Sie ein weiteres Mal dieselben <strong>30 Fragen (Teilaufgaben)</strong> aus allgemeinen Wissensgebieten wie in Aufgabe 1 beantworten. Wieder stammen sie also aus den Kategorien: Bildende Kunst, Literatur, Umweltwissenschaften, Geographie, Geschichte und Popkultur. Die Fragen werden in derselben Reihenfolge pr&auml;sentiert wie zuvor in Aufgabe 1.</span></p>
+<p><span>Diesmal allerdings werden Sie die Fragen <strong>in einer Gruppe</strong> beantworten. Sie wurden zuf&auml;llig mit einem anderen Teilnehmer aus diesem Raum verbunden, mit dem Sie f&uuml;r diese Aufgabe eine <strong>Zweiergruppe</strong> bilden. Es geht darum, die Fragen als Gruppe richtig zu beantworten. Ihre Gruppe kann nur eine Antwort pro Frage geben, weshalb alle Gruppenmitglieder sich auf eine der Antwortm&ouml;glichkeiten einigen sollten. Um dies zu tun, bekommen Sie ein Chat-Fenster sobald die Aufgabe beginnt, &uuml;ber das Sie Textnachrichten in Ihrer Gruppe austauschen k&ouml;nnen.</span></p>
+<p><span>Beachten Sie, dass nur wenn Sie <strong>beide die gleiche Antwort</strong> geben, diese als Gruppenantwort z&auml;hlt. Falls Sie beide unterschiedliche Antworten auf eine Frage geben, z&auml;hlt dies wie eine falsche Gruppenantwort, selbst wenn eine der beiden Antworten einzeln richtig w&auml;re.</span></p>
+<p><strong><span style="color: #ff0000;">Es ist also wichtig, dass Sie sich bei jeder Frage auf <u>eine</u> Antwort einigen. </span></strong><span>Jeder von Ihnen erh&auml;lt <strong>{{ Constants.pointsKnowG }}</strong> f&uuml;r jede richtige Gruppenantwort, die sie in den zur Verf&uuml;gung stehenden <strong>4 Minuten </strong>geben. Behalten Sie in Erinnerung, dass diese Aufgabe in jedem Fall ausbezahlt wird.</span></p>
+<p><span>Hier sehen Sie ein Beispiel:</span></p>
+    <img style="border: #000000 4px outset" src="{%  static "images/knowgexample.png" %}"/>
+
+    <br><br>
+<p><strong><span>Hans-Dietrich Genscher</span></strong><span> w&auml;re hier die richtige Antwort.</span></p>
+<p><span style="color: #ff0000;">Klicken Sie den Button wenn Sie bereit sind. Sobald alle anderen ebenso bereit sind, beginnt automatisch die Bearbeitungszeit, also beachten Sie Ihren Bildschirm.</span></p>
+
+    {% next_button %}
+
+{% endblock %}

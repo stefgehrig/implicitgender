@@ -1,0 +1,19 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+        Teilaufgabe 15
+{% endblock %}
+
+{% block content %}
+    <br><br>
+Welcher der folgenden Schriftsteller war kein Amerikaner?
+<br><br>
+        {% formfield  player.KnowS15 with label="Wählen Sie Ihre Antwort" %}
+
+
+  <br>
+
+    {% next_button %}
+
+{% endblock %}

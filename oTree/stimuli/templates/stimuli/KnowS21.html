@@ -1,0 +1,21 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+        Teilaufgabe 21
+{% endblock %}
+
+{% block content %}
+    <br><br>
+
+    Von welchem Maler stammt das berühmte Gemälde „Blaues Pferd I“?
+<br><br>
+        {% formfield  player.KnowS21 with label="Wählen Sie Ihre Antwort" %}
+
+
+
+  <br>
+
+    {% next_button %}
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+{% load otreechat %}
+{% block title %}
+    Teilaufgabe 3
+{% endblock %}
+
+{% block content %}
+    <br><br>
+In welcher Sitcom ist ein Hausmeister Leiter des „Clubs der Denker“?
+<br><br>
+        {% formfield  player.KnowG3 with label="Wählen Sie die Antwort Ihrer Gruppe" %}
+
+ {% chat nickname=player.nicky %}
+
+<style>
+
+    .otree-chat__nickname {
+        color: #505050;
+        font-weight: bold;
+    }
+</style>
+
+  <br>
+
+    {% next_button %}
+
+{% endblock %}

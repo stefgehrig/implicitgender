@@ -1,0 +1,34 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Vielen Dank!
+{% endblock %}
+
+{% block content %}
+
+
+
+    <p><span>Sie haben alle Aufgaben abgeschlossen. Ihre Gesamtauszahlung betr&auml;gt <b>{{ player.payofftotal }} </b>.</span></p>
+
+    {% if player.randompick != 3 %}
+
+    <p><span>Von den ersten f&uuml;nf Aufgaben wurde zuf&auml;llig die Aufgabe {{ player.payoff_1_5_label }} ausgew&auml;hlt,
+        in welcher Sie {{ player.res }} richtige Antworten erreicht haben und dementsprechend mit {{ player.payoff_1_5 }} entlohnt werden. </span></p>
+
+    {% endif %}
+
+    {% if player.ranompick == 3 %}
+
+    <p><span>Von den ersten f&uuml;nf Aufgaben wurde zuf&auml;llig die Aufgabe {{ player.payoff_1_5_label }} ausgew&auml;hlt,
+        in welcher Sie {{ player.counterWordsall }} richtige und {{ player.failuresWordsall }} falsche Antworten haben und dementsprechend mit {{ player.payoff_1_5 }} entlohnt werden. </span></p>
+
+    {% endif %}
+
+    <p><span>Ihre Entlohnung f&uuml;r die Aufgaben 7 (Allgemeine Wissensfragen in Gruppen: {{ player.payoff7 }}) und
+        8 (Fragebogen II und III: {{ player.payoff8sum }}) betr&auml;gt {{ player.payoff7and8sum }}.</span></p>
+    <p><span>Hinzu kommt Ihr Fixbetrag von 5 &euro;.</span></p>
+    <p>&nbsp;</p>
+
+
+{% endblock %}

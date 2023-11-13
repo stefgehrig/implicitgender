@@ -1,0 +1,20 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+        Teilaufgabe 9
+{% endblock %}
+
+{% block content %}
+    <br><br>
+In welcher literarischen Form verfasste J.W. Goethe „Die Leiden des jungen Werthers“?
+<br><br>
+        {% formfield  player.KnowS9 with label="Wählen Sie Ihre Antwort" %}
+
+
+
+  <br>
+
+    {% next_button %}
+
+{% endblock %}

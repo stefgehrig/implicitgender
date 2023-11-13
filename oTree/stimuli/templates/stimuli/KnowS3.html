@@ -1,0 +1,20 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+        Teilaufgabe 3
+{% endblock %}
+
+{% block content %}
+    <br><br>
+In welcher Sitcom ist ein Hausmeister Leiter des „Clubs der Denker“?
+<br><br>
+        {% formfield  player.KnowS3 with label="Wählen Sie Ihre Antwort" %}
+
+
+
+  <br>
+
+    {% next_button %}
+
+{% endblock %}

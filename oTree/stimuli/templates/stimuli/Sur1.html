@@ -1,0 +1,60 @@
+{% extends "otreeutils/ExtendedPage.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Aufgabe 8: Fragebogen I
+{% endblock %}
+
+{% block content %}
+
+    {% formfield player.age with label="Wie alt sind Sie?"  %}<br>
+
+    {% formfield player.gen with label="Wie lautet Ihr Geschlecht?"  %}<br>
+
+    {% formfield player.eng with label="Haben Sie in Ihrem Umfeld Deutsch gesprochen, als Sie aufwuchsen?"  %}<br>
+
+    {% formfield player.stud with label="Was studieren Sie?"  %}<br>
+
+    {% formfield player.stru with label="Hatten Sie Schwierigkeiten, irgendeinen Teil dieses Experiments zu verstehen?"  %}<br>
+
+    {% formfield player.stru2 with label="Falls ja, bei welchem Teil hatten Sie die größten Schwierigkeiten?"  %}<br>
+
+    {% formfield player.stru3 with label="Hatte das mit dem Verständnis der Sprache zu tun?"  %}<br>
+
+    <b>Wie beurteilen Sie persönlich den Schwierigkeitsgrad jeder der Aufgaben, die Sie bearbeitet haben, auf einer Skala von 1 (sehr leicht) bis 7 (sehr schwer)?</b><br><br>
+    <fieldset>{% formfield player.dif1 with label="Allgemeine Wissensfragen"%}<p style="display:inline"> <p>Zur Erinnerung hier ein Beispiel der Aufgabe:</p>  <img style="border: #000000 1px outset; max-width: 200px; height: auto; " src="{%  static "images/knowsexample.png" %}"/></fieldset><br><br>
+    <fieldset>{% formfield player.dif2 with label="Mathematik"%} <p style="display:inline"> <p>Zur Erinnerung hier ein Beispiel der Aufgabe:</p>   <img style="border: #000000 1px outset; max-width: 150px; height: auto; " src="{%  static "images/summingexample.png" %}"/></fieldset><br><br>
+    <fieldset>{% formfield player.dif3 with label="Worträtsel"%}<p style="display:inline"> <p>Zur Erinnerung hier ein Beispiel der Aufgabe:</p>  <img style="border: #000000 1px outset; max-width: 220px; height: auto; " src="{%  static "images/wordesol.jpg" %}"/></fieldset><br><br>
+    <fieldset>{% formfield player.dif4 with label="Muster erkennen"%} <p style="display:inline"> <p>Zur Erinnerung hier ein Beispiel der Aufgabe:</p>  <img style="border: #000000 1px outset; max-width: 200px; height: auto; " src="{%  static "images/matexample.png" %}"/></fieldset><br><br>
+    <fieldset>{% formfield player.dif5 with label="Versteckte Formen"%} <p style="display:inline"> <p>Zur Erinnerung hier ein Beispiel der Aufgabe:</p> <img style="border: #000000 1px outset; max-width: 200px; height: auto; " src="{%  static "images/figexample.png" %}"/></fieldset><br><br>
+    <fieldset>{% formfield player.dif6 with label="Emotionen im Team"%}<p style="display:inline"> <p>Zur Erinnerung hier ein Beispiel der Aufgabe:</p>  <img style="border: #000000 1px outset; max-width: 400px; height: auto; " src="{%  static "images/eqexample.png" %}"/></fieldset><br><br>
+    <fieldset>{% formfield player.dif7 with label="Allgemeine Wissensfragen in Gruppen"%}<p style="display:inline"> <p>Zur Erinnerung hier ein Beispiel der Aufgabe:</p>   <img style="border: #000000 1px outset; max-width: 380px; height: auto; " src="{%  static "images/knowgexample.png" %}"/></fieldset><br>
+
+
+
+
+
+
+<br>
+
+    {% next_button %}
+
+{% endblock %}
+
+
+{% block styles %}
+
+    <style type="text/css">
+
+    FIELDSET {
+    margin: 8px;
+    border: 1px solid silver;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+
+    </style>
+{% endblock %}
+
+

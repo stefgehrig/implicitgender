@@ -1,0 +1,18 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+        Teilaufgabe 14
+{% endblock %}
+
+{% block content %}
+    <br><br>
+Welche der folgenden Staaten grenzen aneinander?
+<br><br>
+        {% formfield  player.KnowS14 with label="Wählen Sie Ihre Antwort" %}
+
+  <br>
+
+    {% next_button %}
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "otreeutils/ExtendedPage.html" %}
+{% load staticfiles otree_tags %}
+
+
+{% block content %}
+
+<h3><b>Wie bewerten Sie die Aussagekraft der Zertifikate?</b></h3>
+
+    Für wie <b>aussagekräftig</b> halten Sie die verschiedenen
+    Zertifikate um die Leistung <b>einer beliebigen Person</b>
+    in <b><u>Logisches Folgern</u></b> einzuschätzen?
+    Bitte geben Sie Ihre Bewertung der Aussagekraft der Zertifikate auf einer Skala von 1 bis 5 an, mit<br><br>
+    <font size="3">1 = <b>nicht</b> aussagekräftig,<br> 2 = <b>wenig</b> aussagekräftig,<br> 3 = <b>in Maßen</b>
+        aussagekräftig,<br> 4 = <b>ziemlich</b> aussagekräftig,<br> 5 = <b>sehr</b> aussagekräftig</font>.<br><br>
+    In dieser Aufgabe können Sie kein zusätzliches Geld gewinnen.
+
+<br><br>
+
+
+{% if player.treat == "einsA" or player.treat == "zweiA"%}
+
+{% formfield  player.beliefscale1 with label="Aussagekraft Zertifikat in Wissen" %}
+
+{% formfield  player.beliefscale2 with label="Aussagekraft Zertifikat in Wörter" %}
+
+{% endif %}
+
+{% if player.treat == "einsB" or player.treat == "zweiB"%}
+
+    {% formfield  player.beliefscale2 with label="Aussagekraft Zertifikat in Wörter" %}
+
+    {% formfield  player.beliefscale1 with label="Aussagekraft Zertifikat in Wissen" %}
+
+
+{% endif %}
+
+{% next_button %}
+
+
+{% endblock %}
+
+

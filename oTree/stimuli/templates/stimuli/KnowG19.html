@@ -1,0 +1,28 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+{% load otreechat %}
+{% block title %}
+        Teilaufgabe 19
+{% endblock %}
+
+{% block content %}
+    <br><br>
+    Welcher Künstler lebte in einer Epoche mit Leonardo Da Vinci?
+<br><br>
+        {% formfield  player.KnowG19 with label="Wählen Sie die Antwort Ihrer Gruppe" %}
+
+     {% chat nickname=player.nicky %}
+
+<style>
+
+    .otree-chat__nickname {
+        color: #505050;
+        font-weight: bold;
+    }
+</style>
+
+  <br>
+
+    {% next_button %}
+
+{% endblock %}

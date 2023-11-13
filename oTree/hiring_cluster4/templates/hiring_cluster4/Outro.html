@@ -1,0 +1,28 @@
+{% extends "otreeutils/ExtendedPage.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+Vielen Dank!
+{% endblock %}
+{% block content %}
+    <p><span>Sie haben alle Entscheidungen abgeschlossen.
+        Ihre Gesamtauszahlung betr&auml;gt&nbsp;<strong>{{ player.total_payoff_plus_fee }}</strong>.<br><br>
+        Dieser Betrag setzt sich zusammen aus dem Fixbetrag von 5 &euro;, Ihren erzielten
+        Einnahmen aus der ersten Entscheidung ({{ player.payoffapp1_1 }}), Ihren erzielten Einnahmen aus der
+        Preisliste ({{ player.payoffapp1_2 }}),
+        und Ihren erzielten Einnahmen aus der zuf&auml;llig ausgew&auml;hlten weiteren Entscheidung
+        ({{ player.payoffapp23 }}).</span></p>
+
+    <br>
+<h4><p><strong>Der erste Teil unseres Experiments ist hiermit beendet.</strong> Allerdings haben Sie die M&ouml;glichkeit <strong>weitere 10 &euro; in Form eines <em>amazon</em>-Geschenkgutscheins </strong>zu verdienen.</p></h4><br>
+<p>Um den <em>amazon</em>-Geschenkgutschein &uuml;ber 10 &euro; zu erhalten, nehmen Sie bitte ab sofort und innerhalb der n&auml;chsten Woche an einem Online-Experiment teil. Das Online-Experiment ist Teil dieser Studie und dauert ungef&auml;hr 20 Minuten. Sie k&ouml;nnen es von zu Hause aus bearbeiten. Alle weiteren Informationen erhalten Sie w&auml;hrend des Online-Experiments.</p>
+<p><strong>Wir teilen nun einen Zettel mit einem Link aus, der Sie zum Online-Experiment f&uuml;hrt. Damit wir die Studie vollst&auml;ndig durchf&uuml;hren k&ouml;nnen, ist es wichtig, dass Sie am Online-Experiment teilnehmen.</strong><br /> <br /> Um teilzunehmen, <strong>generieren Sie nun ein pers&ouml;nliches Passwort</strong> aus mindestens fünf Zeichen. Sie werden das persönliche Passwort im Online-Experiment verwenden m&uuml;ssen.<br /> </p>
+<p>Bitte geben Sie hier nun Ihr pers&ouml;nlich generiertes Passwort ein. Wir empfehlen ein Passwort, an das Sie sich leicht erinnern, das allerdings auch individuell ist.</p>
+
+    <br>{% formfield player.password with label="Bitte geben Sie hier Ihr persönlich generiertes Passwort ein" %}<br>
+<p>Sie werden sich korrekt an das Passwort erinnern m&uuml;ssen, um am Online-Experiment teilzunehmen. <strong>Deshalb k&ouml;nnen Sie sich ihr Passwort auch gerne notieren.</strong>&nbsp;</p>
+<p>Bitte beachten Sie, dass Ihre vollkommene Anonymität auch bei der Teilnahme am Online-Experiment gewahrt bleibt!</p>
+<p>Klicken Sie nun bitte auf den Button.</p>
+   <br>
+    {% next_button %}
+{% endblock %}
