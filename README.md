@@ -72,7 +72,7 @@ study                         | Participant's university study program as free t
 totalpayoff                   | Participant's total realized payoff including show-up fee (Euro)
 study_coded                   | Participant's university study program coded into broad categories (econ = Economics/Business, stem = STEM, other = all other programs)
 
-#### Code for lab experiment
+## Code for lab experiment
 
 In the folder `/oTree`, oTree program files are deposited that were used to run the experimental sessions. The folder `oTree/stimuli` contains the program for the job candidate assessment (Experiment 1). The folders `oTree/hiring_cluster1`, `oTree/hiring_cluster2`, `oTree/hiring_cluster3` and `oTree/hiring_cluster4` contain the programs which, in this sequence, were used for the hiring experiment (Experiment 2). 
 
