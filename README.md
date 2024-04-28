@@ -2,9 +2,16 @@
 
 This repository contains data and analysis code to reproduce results from the article **"Explicit and Implicit Belief-Based Gender Discrimination: A Hiring Experiment"**.
 
-<p align="left">
-<img src="figures/barplot_complex_gender_ult.png" width="400">
-</p>
+
+<body> 
+ 
+<div style="display: flex;"> 
+  <img src="figures/barplot_complex_gender_ult.png" style="height: 200px;"> 
+  <img src="figures/wtp_treatments.png" style="height: 200px;"> 
+  <img src="figures/complex_choice_types.png" style="height: 200px;"> 
+</div> 
+ 
+</body> 
 
 ## R scripts
 
