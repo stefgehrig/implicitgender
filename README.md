@@ -2,6 +2,9 @@
 
 This repository contains data and analysis code to reproduce results from the article **"Explicit and Implicit Belief-Based Gender Discrimination: A Hiring Experiment"**.
 
+**Links to the article:**
+- <a href="https://opus4.kobv.de/opus4-hsog/frontdoor/deliver/index/docId/5361/file/BSoE_DP_0035.pdf">Discussion Paper</a> (March 2024)
+- *tbd*
 
 <body> 
  
@@ -12,6 +15,8 @@ This repository contains data and analysis code to reproduce results from the ar
 </div> 
  
 </body> 
+
+
 
 ## R scripts
 
