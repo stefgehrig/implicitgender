@@ -6,9 +6,9 @@ This repository contains data and analysis code to reproduce results from the ar
 <body> 
  
 <div style="display: flex;"> 
-  <img src="figures/barplot_complex_gender_ult.png" style="height: 200px;"> 
-  <img src="figures/wtp_treatments.png" style="height: 200px;"> 
-  <img src="figures/complex_choice_types.png" style="height: 200px;"> 
+  <img src="figures/barplot_complex_gender_ult.png" style="height: 125px;"> 
+  <img src="figures/wtp_treatments.png" style="height: 125px;"> 
+  <img src="figures/complex_choice_types.png" style="height: 125px;"> 
 </div> 
  
 </body> 
