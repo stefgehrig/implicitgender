@@ -4,7 +4,7 @@ This repository contains data and analysis code to reproduce results from the ar
 
 **Links to the article:**
 - <a href="https://opus4.kobv.de/opus4-hsog/frontdoor/deliver/index/docId/5361/file/BSoE_DP_0035.pdf">Discussion Paper</a> (March 2024)
-- *tbd*
+- <a href="https://doi.org/10.1287/mnsc.2022.01229">Publication in <i>Management Science</i></a> (May 2024)
 
 <body> 
  
